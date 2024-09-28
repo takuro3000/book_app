@@ -1,0 +1,22 @@
+<h1>投稿</h1>
+
+<%= form_with model: @post do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :difficulty %><br>
+    <%= form.number_field :difficulty %>
+  </div>
+
+  <div>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit "投稿"%>
+  </div>
+<% end %>
