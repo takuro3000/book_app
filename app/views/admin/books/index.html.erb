@@ -1,0 +1,12 @@
+<h1> 一覧 </h1>
+<div><%= link_to "投稿" , new_admin_book_path %></div>
+<ul>
+  <% @books.each do |book| %>
+    <li>
+      <h2><%= book.title %></h2>
+      <%= book.difficulty %><br>
+      <%= book.description %><br>
+      <%= book.image %><br>
+    </li>
+  <% end %>
+</ul>

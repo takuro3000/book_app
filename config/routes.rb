@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: {
-   sessions: 'admin/sessions'
- }
- devise_for :users, controllers: {
-   sessions: 'user/sessions',
-   registrations: 'user/registrations'
- }
+    sessions: 'admin/sessions'
+  }
+  devise_for :users, controllers: {
+    sessions: 'user/sessions',
+    registrations: 'user/registrations'
+  }
+
+  namespace :admin do
+    resources :books, only: %i[index show new create edit update]
+  end
   root "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
