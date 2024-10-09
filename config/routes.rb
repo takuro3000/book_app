@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :products, only: %i[index show new create edit update]
+    resources :books, only: %i[index show new create edit update]
   end
   root "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
