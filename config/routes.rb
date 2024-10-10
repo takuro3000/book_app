@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :books, only: %i[index show new create edit update]
   end
+
+  scope module: :user do
+    resources :books, only: %i[index show]
+  end
+
   root "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -12,6 +12,7 @@ class Admin::BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    # @book.admin_id = adminのid
     if @book.save
       redirect_to admin_book_path(@book)
     else
@@ -38,6 +39,6 @@ class Admin::BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:product).permit(:name, :difficulty, :description, :image)
+    params.require(:book).permit(:name, :difficulty, :description, :image)
   end
 end
