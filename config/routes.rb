@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :user do
-    resources :books, only: %i[index show]
+    resources :books, only: %i[index show] do
+      resources :posts, only: %i[index new create]
+    end
   end
 
   root "pages#home"
@@ -20,7 +22,6 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  resources :posts, only: [:index , :new ,:create ,:edit ,:update ,:destroy]
 
   # Defines the root path route ("/")
   # root "posts#index"

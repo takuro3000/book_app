@@ -2,3 +2,16 @@
 <h2><%= @book.difficulty%></h2>
 <p><%= @book.description%></p>
 <div><%= image_tag @book.image%></div>
+
+<div>
+    <%= link_to new_book_post_path(@book) do %>
+      投稿する
+    <% end %>
+</div>
+<p>ユーザーの投稿</p>
+<ul>
+    <% @posts.each do |post| %>
+        <%= post.difficulty %><br>
+        <%= post.content %><br>
+    <% end %>
+</ul>
