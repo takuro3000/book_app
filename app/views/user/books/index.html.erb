@@ -2,11 +2,10 @@
 <ul>
   <% @books.each do |book| %>
     <%= link_to book_path(book) do %>
-        <li>
-        <h2><%= book.title %></h2>
+        <%= book.title %><br>
+        <%= book.posts.count %><br>
         <%= book.difficulty %><br>
         <%= image_tag book.image %><br>
-        </li>
     <% end %>
   <% end %>
 </ul>

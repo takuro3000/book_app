@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <%= render 'layouts/navbar'%>
+    <p><%= link_to "BookApp" , root_path %></p>
     <% if admin_signed_in? %>
       <p>
         <%= link_to destroy_admin_session_path, data: { turbo_method: :delete } do %>
           Sign out
+        <% end %>
+      </p>
+      <p>
+        <%= link_to new_admin_book_path do %>
+          本の投稿
         <% end %>
       </p>
     <% elsif user_signed_in? %>
