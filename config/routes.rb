@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :books, only: %i[index show] do
       resources :posts, only: %i[index new create]
     end
+    resources :posts, only: %i[index new create] do
+      resources :likes, only: %i[create destroy]
+    end
   end
 
   root "pages#home"
