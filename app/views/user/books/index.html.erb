@@ -4,7 +4,7 @@
     <%= link_to book_path(book) do %>
         <%= book.title %><br>
         <%= book.posts.count %><br>
-        <%= book.difficulty %><br>
+        <%= book.avg_difficulty %><br>
         <%= image_tag book.image %><br>
     <% end %>
   <% end %>
