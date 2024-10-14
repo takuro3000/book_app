@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :books, only: %i[index show new create edit update]
+    resources :books, only: %i[index show new create edit update destroy]
   end
 
   scope module: :user do

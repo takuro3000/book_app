@@ -1,12 +1,14 @@
 <h1> 一覧 </h1>
-<div><%= link_to "投稿" , new_admin_book_path %></div>
+
 <ul>
   <% @books.each do |book| %>
     <li>
-      <h2><%= book.title %></h2>
+      <%= book.title %><br>
       <%= book.difficulty %><br>
       <%= book.description %><br>
       <%= image_tag book.image %><br>
+      <%= link_to "編集", edit_admin_book_path(book)%>
+      <%= button_to "削除", admin_book_path(book), method: :delete%>
     </li>
   <% end %>
 </ul>
