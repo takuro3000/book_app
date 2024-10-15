@@ -2,6 +2,20 @@ class Book < ApplicationRecord
   has_one_attached :image
   has_many :posts, dependent: :destroy
 
+  scope :latest, -> { order(created_at: :desc) }
+  scope :order_by_post_count, -> do
+    sql = <<~SQL
+      LEFT OUTER JOIN (
+        SELECT c.book_id, COUNT(*) AS cnt
+        FROM posts c 
+        GROUP BY c.book_id
+      ) post_counts
+      ON post_counts.book_id = book_id
+    SQL
+    joins(sql)
+    .order(Arel.sql("COALESCE(post_counts.cnt, 0) DESC"))
+  end
+
   def avg_difficulty
     unless self.posts.empty?
       posts.average(:difficulty).round(1).to_f

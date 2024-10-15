@@ -1,2 +1,7 @@
-<h1>Book app</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>投稿の多い本</h1>
+<% @books.each do |book| %>
+    <%= book.title %><br>
+    投稿数：<%= book.posts.count %><br>
+    難易度：<%= book.avg_difficulty %><br>
+    <%= image_tag book.image %><br>
+<% end %>
