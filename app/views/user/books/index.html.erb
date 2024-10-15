@@ -1,10 +1,11 @@
 <h1> 一覧 </h1>
+<%= render 'user/books/search' %>
 <ul>
   <% @books.each do |book| %>
     <%= link_to book_path(book) do %>
         <%= book.title %><br>
-        <%= book.posts.count %><br>
-        <%= book.avg_difficulty %><br>
+        投稿数：<%= book.posts.count %><br>
+        難易度：<%= book.avg_difficulty %><br>
         <%= image_tag book.image %><br>
     <% end %>
   <% end %>
