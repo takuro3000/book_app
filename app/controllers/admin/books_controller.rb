@@ -1,6 +1,6 @@
 class Admin::BooksController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_book, only: %i[show edit update]
+  before_action :set_book, only: %i[show edit update destroy]
 
   def index
     @books = Book.all
@@ -13,7 +13,7 @@ class Admin::BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to admin_book_path(@book)
+      redirect_to admin_books_path
     else
       render :new
     end
@@ -25,10 +25,15 @@ class Admin::BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to admin_book_path(@book)
+      redirect_to admin_books_path
     else
       render :edit
     end
+  end
+
+  def destroy
+    @book.destroy
+    redirect_to admin_books_path
   end
 
   private
@@ -38,6 +43,6 @@ class Admin::BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:product).permit(:name, :difficulty, :description, :image)
+    params.require(:book).permit(:title, :difficulty, :description, :image,)
   end
 end

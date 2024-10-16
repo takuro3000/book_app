@@ -1,0 +1,25 @@
+<h1>投稿</h1>
+
+<%= form_with model: @post , url: book_posts_path(@book) do |form| %>
+  <div>
+    <i class="fa-regular fa-star"></i>
+    <i class="fa-regular fa-star"></i>
+    <i class="fa-regular fa-star"></i>
+    <i class="fa-regular fa-star"></i>
+    <i class="fa-regular fa-star"></i>
+  </div>
+  
+  <div>
+    <%= form.label :difficulty %><br>
+    <%= form.number_field :difficulty %>
+  </div>
+
+  <div>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit "投稿"%>
+  </div>
+<% end %>
