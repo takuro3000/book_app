@@ -13,28 +13,6 @@
 
   <body>
     <%= render 'layouts/navbar'%>
-    <p><%= link_to "BookApp" , root_path %></p>
-    <% if admin_signed_in? %>
-      <p>
-        <%= link_to destroy_admin_session_path, data: { turbo_method: :delete } do %>
-          Sign out
-        <% end %>
-      </p>
-      <p>
-        <%= link_to new_admin_book_path do %>
-          本の投稿
-        <% end %>
-      </p>
-    <% elsif user_signed_in? %>
-      <p>
-        <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
-          Sign out
-        <% end %>
-      </p>
-    <% else %>
-      <p><%= link_to "Sign Up", new_user_registration_path %></p>
-      <p><%= link_to "Sign In", new_user_session_path %></p>
-    <% end %>
     <%= yield %>
   </body>
 </html>
