@@ -1,0 +1,14 @@
+.product-card img {
+    max-height: 150px;
+    object-fit: contain;
+}
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 50%;
+}
