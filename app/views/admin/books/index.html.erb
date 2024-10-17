@@ -4,7 +4,6 @@
   <% @books.each do |book| %>
     <li>
       <%= book.title %><br>
-      <%= book.difficulty %><br>
       <%= book.description %><br>
       <%= image_tag book.image %><br>
       <%= link_to "編集", edit_admin_book_path(book)%>
