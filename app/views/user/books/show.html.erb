@@ -28,10 +28,12 @@
 
             <!-- User Comments/Activities Section -->
             <section>
-                <h4>ユーザーの投稿</h4>
-                <%= link_to new_book_post_path(@book) do %>
-                    投稿する
-                <% end %>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>ユーザーの投稿</h4>
+                    <%= link_to new_book_post_path(@book) do %>
+                        投稿する
+                    <% end %>
+                </div>
                 <!-- Repeat this block for each comment -->
                 <% @posts.each do |post| %>
                     <div class="comment-section">
