@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :likes, only: %i[create destroy]
     end
   end
-
+  resources :users, only: %i[show edit update]
   root "pages#home"
   get "about" , to: "pages#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

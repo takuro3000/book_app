@@ -1,0 +1,11 @@
+<h1>プロフィール</h1>
+<p><%= @user.name%></p>
+<p><%= @user.email%></p>
+
+<% if @user.id == current_user.id %>
+    <%= link_to "編集", edit_user_path(@user) %>
+<% end %>
+<h2>ユーザーが投稿したポスト</h2>
+<% @user.posts.each do |post| %>
+    <p><%= post.content %></p>
+<% end %>
