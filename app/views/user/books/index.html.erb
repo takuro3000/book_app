@@ -15,7 +15,10 @@
           <div class="col-md-9">
               <h4 class="mb-2"><%= book.title %></h4>
               <p><%= book.author%> | <span><%= book.published_day%></span></p>
-
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= book.post_difficulty_percentage %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+              </div>
               <!-- Rating -->
               <div class="mb-2">
                   <span class="rating"><%= book.avg_difficulty%></span>
