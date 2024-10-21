@@ -2,13 +2,32 @@
     max-height: 150px;
     object-fit: contain;
 }
-.price {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: #000;
     padding: 20px;
     border-radius: 50%;
+}
+
+.star-rating {
+    width: 5em;
+    height: 1em;
+    font-size: 25px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.star-rating-front {
+    overflow: hidden;
+    color: #ffcc33;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.star-rating-back {
+    color: #ccc;
+    display: inline-block;
+    white-space: nowrap;
 }

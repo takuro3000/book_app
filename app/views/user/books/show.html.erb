@@ -23,7 +23,10 @@
             <!-- Book Details -->
             <section class="mb-4">
                 <h4>本の難易度</h4>
-                <p><%= @book.avg_difficulty%></p>
+                <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= @book.post_difficulty_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                </div>
             </section>
 
             <!-- User Comments/Activities Section -->

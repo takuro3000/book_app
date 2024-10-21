@@ -5,25 +5,29 @@
 
     <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="row text-center">
-                    <!-- Product Card 1 -->
-                    <% @books.each do |book| %>
-                        <div class="col">
-                            <%= link_to book_path(book) do%>
-                                <div class="card product-card">
-                                    <%= image_tag book.image ,class:"card-img-top"%>
-                                    <div class="card-body">
-                                        <p class="card-text"><%= book.title %></p>
-                                        <p class="price">難易度：<%= book.avg_difficulty %></p>
-                                        <p class="price">投稿数：<%= book.posts.count %></p>
+            <% @books.each_slice(4).with_index do |book_group, index| %> <!-- 4冊ごとに分割 -->
+                <div class="carousel-item <%= 'active' if index == 0 %>">
+                    <div class="row text-center">
+                        <% book_group.each do |book| %> <!-- 各グループの本を表示 -->
+                            <div class="col-lg-3">
+                                <%= link_to book_path(book) do %>
+                                    <div class="card product-card">
+                                        <%= image_tag book.image, class: "card-img-top" %>
+                                        <div class="card-body">
+                                            <div class="star-rating mb-3">
+                                                <div class="star-rating-front" style="width: <%= book.post_difficulty_percentage %>%">★★★★★</div>
+                                                <div class="star-rating-back">★★★★★</div>
+                                            </div>
+                                            <p class="card-text"><%= book.title %></p>
+                                            <small class="price">投稿数：<%= book.posts.count %></small>
+                                        </div>
                                     </div>
-                                </div>
-                            <% end %>
-                        </div>
-                    <% end %>
+                                <% end %>
+                            </div>
+                        <% end %>
+                    </div>
                 </div>
-            </div>
+            <% end %>
         </div>
 
         <!-- Carousel controls -->
