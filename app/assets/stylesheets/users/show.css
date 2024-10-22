@@ -1,0 +1,48 @@
+aside {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.social-icons {
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+.social-icons a {
+    margin: 0 10px;
+    color: #000;
+}
+.contributions {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.bio {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+.product-img {
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+.product-title {
+    font-size: 1rem;
+    font-weight: bold;
+}

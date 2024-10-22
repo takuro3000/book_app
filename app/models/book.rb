@@ -13,12 +13,21 @@ class Book < ApplicationRecord
       ON post_counts.book_id = book_id
     SQL
     joins(sql)
+    .select('DISTINCT books.*')
     .order(Arel.sql("COALESCE(post_counts.cnt, 0) DESC"))
   end
 
   def avg_difficulty
     unless self.posts.empty?
       posts.average(:difficulty).round(1).to_f
+    else
+      0.0
+    end
+  end
+
+  def post_difficulty_percentage
+    unless self.posts.empty?
+      posts.average(:difficulty).round(1).to_f*100/5
     else
       0.0
     end

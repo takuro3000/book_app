@@ -1,0 +1,13 @@
+.book-img-top {
+    max-width: 100%;
+    height: auto;
+}
+.comment-section {
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+.side-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 15px;
+}
