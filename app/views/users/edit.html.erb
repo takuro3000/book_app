@@ -1,16 +1,43 @@
-<h1>Edit</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center my-4">プロフィール編集</h1>
 
-<%= form_with model: @user , url: user_path(@user) do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </div>
+      <%= form_with model: @user, url: user_path(@user), html: { class: 'form-horizontal' } do |form| %>
+        <div class="mb-3">
+          <%= form.label :name, class: "form-label" %>
+          <%= form.text_field :name, class: "form-control", autofocus: true %>
+        </div>
 
-  <div>
-    <%= form.submit "更新"%>
+        <div class="mb-3">
+          <%= form.label :self_introduction, class: "form-label" %>
+          <%= form.text_area :self_introduction, class: "form-control", rows: 5 %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :level, class: "form-label" %>
+          <%= form.select :level, [["初級エンジニア","初級エンジニア"],["中級エンジニア","中級エンジニア"],["上級エンジニア","上級エンジニア"]], include_blank: "選択して下さい", class: "form-select" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :x_url, class: "form-label" %>
+          <%= form.text_field :x_url, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :github_url, class: "form-label" %>
+          <%= form.text_field :github_url, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :icon, class: "form-label" %>
+          <%= form.file_field :icon, class: "form-control" %>
+        </div>
+
+        <div class="d-grid">
+          <%= form.submit "更新", class: "btn btn-primary btn-block" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

@@ -1,7 +1,7 @@
 <main class="container mt-4">
     <div class="row">
         <aside class="col-md-3">
-            <img src="https://via.placeholder.com/100" alt="Profile Image" class="profile-img">
+            <%= image_tag @user.icon, class: "profile-img" %>
 
             <!-- Name and Username -->
             <h2 class="profile-name"><%= @user.name%></h2>
@@ -13,11 +13,12 @@
             </div>
 
             <!-- Contributions -->
+            <div class="contributions"><%= @user.level %></div>
             <div class="contributions">投稿数；<%= @user.posts.count %></div>
 
             <!-- Bio -->
             <p class="bio">
-                たった3ヶ月であなたの「やりたい」を実現するプログラミングスキルが身につく｜メガベンチャーで働く現役エンジニア｜技術記事サイトで年間表彰4位｜プログラミング経験なしの私が科学的根拠のあるアウトプットで年収700万のオファー4件獲得｜現役エンジニア専門のプログラミングスクールJISOUを運営
+                <%= @user.self_introduction%>
             </p>
             <% if @user.id == current_user.id %>
                 <%= link_to "プロフィールの編集", edit_user_path(@user) %>
