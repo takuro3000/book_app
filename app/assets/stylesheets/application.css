@@ -18,3 +18,4 @@
  @import 'user/books/show';
  @import 'user/books/index';
  @import 'user/posts/new';
+ @import 'users/show';

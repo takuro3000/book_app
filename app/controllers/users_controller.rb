@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @books = Book.joins(:posts).where(posts: { user_id: @user.id }).distinct
   end
 
   def edit

@@ -1,11 +1,49 @@
-<h1>プロフィール</h1>
-<p><%= @user.name%></p>
-<p><%= @user.email%></p>
+<main class="container mt-4">
+    <div class="row">
+        <aside class="col-md-3">
+            <img src="https://via.placeholder.com/100" alt="Profile Image" class="profile-img">
 
-<% if @user.id == current_user.id %>
-    <%= link_to "編集", edit_user_path(@user) %>
-<% end %>
-<h2>ユーザーが投稿したポスト</h2>
-<% @user.posts.each do |post| %>
-    <p><%= post.content %></p>
-<% end %>
+            <!-- Name and Username -->
+            <h2 class="profile-name"><%= @user.name%></h2>
+
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+
+            <!-- Contributions -->
+            <div class="contributions">投稿数；<%= @user.posts.count %></div>
+
+            <!-- Bio -->
+            <p class="bio">
+                たった3ヶ月であなたの「やりたい」を実現するプログラミングスキルが身につく｜メガベンチャーで働く現役エンジニア｜技術記事サイトで年間表彰4位｜プログラミング経験なしの私が科学的根拠のあるアウトプットで年収700万のオファー4件獲得｜現役エンジニア専門のプログラミングスクールJISOUを運営
+            </p>
+            <% if @user.id == current_user.id %>
+                <%= link_to "プロフィールの編集", edit_user_path(@user) %>
+            <% end %>
+        </aside>
+        <section class="col-md-9">
+            <h3 class= "ms-3 mb-3">レビューした本一覧</h3>
+            <div class="row">
+                <% @books.each do |book| %>
+                    <div class="col-md-3">
+                        <%= link_to book_path(book) do %>
+                            <div class="card text-center mb-4">
+                                <%= image_tag book.image, class: "product-img" %>
+                                <div class="card-body">
+                                    <div class="star-rating mb-3">
+                                        <div class="star-rating-front" style="width: <%= book.post_difficulty_percentage %>%">★★★★★</div>
+                                        <div class="star-rating-back">★★★★★</div>
+                                    </div>
+                                    <p class="product-title"><%= book.title %></p>
+                                    <small class="price">投稿数：<%= book.posts.count %></small>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+        </section>
+    </div>
+</main>
