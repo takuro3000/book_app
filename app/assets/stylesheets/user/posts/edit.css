@@ -1,0 +1,13 @@
+.edit-ratings {
+    font-size: 30px;
+    color:#ffcc00;
+    cursor: pointer;
+}
+
+.main-rating {
+    display: flex;
+}
+ 
+.edit-rating-value-display {
+    font-size: 20px;
+}
