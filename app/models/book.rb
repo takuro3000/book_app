@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   has_one_attached :image
   has_many :posts, dependent: :destroy
 
-  scope :latest, -> { order(created_at: :desc) }
+  scope :latest, -> { order(published_day: :desc) }
   scope :order_by_post_count, -> do
     sql = <<~SQL
       LEFT OUTER JOIN (
