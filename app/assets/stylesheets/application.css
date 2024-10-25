@@ -15,6 +15,7 @@
  */
 
  @import 'pages/home';
+ @import 'pages/about';
  @import 'user/books/show';
  @import 'user/books/index';
  @import 'user/posts/new';
