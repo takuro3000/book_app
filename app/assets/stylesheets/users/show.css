@@ -36,13 +36,17 @@ aside {
     line-height: 1.6;
 }
 
-
 .product-img {
     max-height: 200px;
     object-fit: contain;
     margin-bottom: 10px;
 }
+
 .product-title {
     font-size: 1rem;
     font-weight: bold;
+}
+
+.row a {
+    text-decoration: none;
 }

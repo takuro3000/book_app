@@ -3,15 +3,14 @@
         <h4>投稿数の多い本</h4>
     </div>
 
-    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="postCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <% @books.each_slice(4).with_index do |book_group, index| %> <!-- 4冊ごとに分割 -->
+            <% @books_post.each_slice(4).with_index do |book_group, index| %> <!-- 4冊ごとに分割 -->
                 <div class="carousel-item <%= 'active' if index == 0 %>">
                     <div class="row text-center">
                         <% book_group.each do |book| %> <!-- 各グループの本を表示 -->
                             <div class="col-lg-3">
-                                <%= link_to book_path(book) do %>
-                                    <div class="card product-card">
+                                <%= link_to book_path(book), class: "card product-card" do %>
                                         <%= image_tag book.image, class: "card-img-top" %>
                                         <div class="card-body">
                                             <div class="star-rating mb-3">
@@ -21,7 +20,6 @@
                                             <p class="card-text"><%= book.title %></p>
                                             <small class="price">投稿数：<%= book.posts.count %></small>
                                         </div>
-                                    </div>
                                 <% end %>
                             </div>
                         <% end %>
@@ -31,11 +29,51 @@
         </div>
 
         <!-- Carousel controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#postCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#postCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-3">
+        <h4>新着の本</h4>
+    </div>
+
+    <div id="newCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <% @books_new.each_slice(4).with_index do |book_group, index| %> <!-- 4冊ごとに分割 -->
+                <div class="carousel-item <%= 'active' if index == 0 %>">
+                    <div class="row text-center">
+                        <% book_group.each do |book| %> <!-- 各グループの本を表示 -->
+                            <div class="col-lg-3">
+                                <%= link_to book_path(book), class: "card product-card" do %>
+                                        <%= image_tag book.image, class: "card-img-top" %>
+                                        <div class="card-body">
+                                            <div class="star-rating mb-3">
+                                                <div class="star-rating-front" style="width: <%= book.post_difficulty_percentage %>%">★★★★★</div>
+                                                <div class="star-rating-back">★★★★★</div>
+                                            </div>
+                                            <p class="card-text"><%= book.title %></p>
+                                            <small class="price">投稿数：<%= book.posts.count %></small>
+                                        </div>
+                                <% end %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+        <!-- Carousel controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#newCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#newCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>

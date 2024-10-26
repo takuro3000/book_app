@@ -8,8 +8,12 @@
 
             <!-- Social Icons -->
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <% if @user.github_url.present?%>
+                    <a href="<%= @user.github_url%>"><i class="fa-brands fa-github"></i></a>
+                <% end %>
+                <% if @user.x_url.present?%>
+                    <a href="<%= @user.x_url%>"><i class="fa-brands fa-x-twitter"></i></a>
+                <% end %>
             </div>
 
             <!-- Contributions -->

@@ -4,8 +4,7 @@
       <%= render 'user/books/search' %>
   </div>
   <% @books.each do |book| %>
-    <%= link_to book_path(book) do%>
-      <div class="row border p-3">
+    <%= link_to book_path(book) ,class:"row border p-3" do%>
           <!-- Product Image -->
           <div class="col-md-3">
               <%= image_tag book.image ,class:"book-img"%>
@@ -21,11 +20,9 @@
               </div>
               <!-- Rating -->
               <div class="mb-2">
-                  <span class="rating"><%= book.avg_difficulty%></span>
-                  <span class="text-muted"><%= book.posts.count %></span>
+                  <span class="text-muted">投稿数：<%= book.posts.count %></span>
               </div>
           </div>
-      </div>
     <% end %>
   <% end %>
 </div>
