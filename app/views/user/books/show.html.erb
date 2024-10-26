@@ -14,7 +14,7 @@
                 <p>ページ数: <%= @book.volume%></p>
                 <p>言語: <%= @book.language%></p>
                 <p>出版社: <%= @book.company%></p>
-                <p>Amazon Link: </p>
+                <a href="<%= @book.link%>">Amazon Link </a>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                                         <div class="star-rating-back">★★★★★</div>
                                     </div>
                                     <p><%= post.content %></p>
-                                    <small class="text-muted">投稿日: 2024年10月18日</small>
+                                    <small class="text-muted">投稿日: <%= post.created_at.strftime('%Y/%m/%d') %></small>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                 <small class="text-muted" id="like_btn_<%= post.id %>">
                                     <%= render "user/likes/btn", post: post %>
                                 </small>
-                                <small class="text-muted">投稿日: 2024年10月18日</small>
+                                <small class="text-muted">投稿日: <%= post.created_at.strftime('%Y/%m/%d') %></small>
                             </div>
                         </div>
                     </div>
