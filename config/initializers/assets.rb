@@ -12,3 +12,4 @@ Rails.application.config.assets.version = "1.0"
 Rails.application.config.assets.precompile += %w( new_posts.js)
 Rails.application.config.assets.precompile += %w( edit_posts.js)
 Rails.application.config.assets.precompile += %w( search_book.js)
+Rails.application.config.assets.precompile += %w( show_book.js)

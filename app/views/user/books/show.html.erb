@@ -44,7 +44,7 @@
                     <% end %>
                 </div>
                 <% if @user_posts.any?%>
-                    <% @user_posts.each do |post| %>
+                    <% @user_posts.each do |user_post| %>
                         <div class="comment-section">
                             <div class="d-flex align-items-start">
                                 <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
@@ -53,11 +53,12 @@
                                         <h6><%= current_user.name %> <%= current_user.level%></h6>
                                     <% end %>
                                     <div class="star-rating mb-2">
-                                        <div class="star-rating-front" style="width: <%= post.difficulty.round(1).to_f*100/5 %>%">★★★★★</div>
+                                        <div class="star-rating-front" style="width: <%= user_post.difficulty.round(1).to_f*100/5 %>%">★★★★★</div>
                                         <div class="star-rating-back">★★★★★</div>
                                     </div>
-                                    <p><%= post.content %></p>
-                                    <small class="text-muted">投稿日: <%= post.created_at.strftime('%Y/%m/%d') %></small>
+                                    <p class="user-post-content" id="user_post_<%= user_post.id %>"><%= user_post.content %></p>
+                                    <button class="btn btn-link p-0 show-more-btn" id="showMoreBtn_<%= user_post.id %>" style="display: none;">続きを読む</button>
+                                    <small class="text-muted">投稿日: <%= user_post.created_at.strftime('%Y/%m/%d') %></small>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +91,8 @@
                                     <div class="star-rating-front" style="width: <%= post.difficulty.round(1).to_f*100/5 %>%">★★★★★</div>
                                     <div class="star-rating-back">★★★★★</div>
                                 </div>
-                                <p><%= post.content %></p>
+                                <p class="post-content" id="post_<%= post.id %>"><%= post.content %></p>
+                                <button class="btn btn-link p-0 read-more-btn" id="readMoreBtn_<%= post.id %>" style="display: none;">続きを読む</button>
                                 <small class="text-muted" id="like_btn_<%= post.id %>">
                                     <%= render "user/likes/btn", post: post %>
                                 </small>
@@ -104,3 +106,5 @@
         </div>
     </div>
 </main>
+
+<%= javascript_include_tag 'show_book.js' %>
