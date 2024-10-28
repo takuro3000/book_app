@@ -10,7 +10,7 @@ class Book < ApplicationRecord
         FROM posts c 
         GROUP BY c.book_id
       ) post_counts
-      ON post_counts.book_id = book_id
+      ON post_counts.book_id = books.id
     SQL
     joins(sql)
     .select('DISTINCT books.*')
