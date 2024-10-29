@@ -1,11 +1,8 @@
 class User::BooksController < ApplicationController
   def index
     @q = Book.ransack(params[:q])
-    if params[:q].present?
-      @books = @q.result(distinct: true)
-    else
-      @books = Book.all
-    end
+    @categories = Book.pluck(:category).uniq
+    @books = @q.result(distinct: true)
   end
 
   def show
