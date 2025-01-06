@@ -37,9 +37,11 @@
                             <div class="card text-center mb-4">
                                 <%= image_tag book.image, class: "product-img" %>
                                 <div class="card-body">
-                                    <div class="star-rating mb-3">
-                                        <div class="star-rating-front" style="width: <%= book.post_difficulty_percentage %>%">★★★★★</div>
-                                        <div class="star-rating-back">★★★★★</div>
+                                    <div class="difficulty_rating justify-content-center mb-3">
+                                        <span>難易度Lv: <%= book.avg_difficulty%></span>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style="width: <%= book.post_difficulty_percentage %>%;" aria-valuenow="<%= book.post_difficulty_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
                                     </div>
                                     <p class="product-title"><%= book.title %></p>
                                     <small class="price">投稿数：<%= book.posts.count %></small>

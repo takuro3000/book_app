@@ -14,9 +14,13 @@
           <div class="col-md-9">
               <h4 class="mb-2"><%= book.title %></h4>
               <p><%= book.author%> | <span><%= book.published_day%></span></p>
-              <div class="star-rating mb-2">
-                <div class="star-rating-front" style="width: <%= book.post_difficulty_percentage %>%">★★★★★</div>
-                <div class="star-rating-back">★★★★★</div>
+              <div class="difficulty_rating mb-2">
+                  <div class="d-flex align-items-center">
+                      <span>難易度Lv: <%= book.avg_difficulty%></span>
+                  </div>
+                  <div class="progress mt-2" style="width: 50%;">
+                      <div class="progress-bar" role="progressbar" style="width: <%= book.post_difficulty_percentage %>%;" aria-valuenow="<%= book.post_difficulty_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
               </div>
               <!-- Rating -->
               <div class="mb-2">

@@ -10,7 +10,7 @@ class Book < ApplicationRecord
         FROM posts c 
         GROUP BY c.book_id
       ) post_counts
-      ON post_counts.book_id = book_id
+      ON post_counts.book_id = books.id
     SQL
     joins(sql)
     .select('DISTINCT books.*')
@@ -33,15 +33,33 @@ class Book < ApplicationRecord
     end
   end
 
+  ransacker :posts_count do
+    Arel.sql('(
+      SELECT COUNT(posts.id) FROM posts WHERE posts.book_id = books.id
+    )')
+  end
+
+  ransacker :avg_difficulty, type: :float do
+    Arel.sql('(
+      SELECT COALESCE(ROUND(AVG(posts.difficulty), 1), 0)
+      FROM posts
+      WHERE posts.book_id = books.id
+    )')
+  end
+
   # ransack用の検索対象フィールドを指定する
   def self.searchable_attributes
-    %w[title]
+    %w[title author category published_day posts_count avg_difficulty]
   end
   searchable_attributes.each do |field|
     scope "search_by_#{field}", ->(keyword) { where("#{field} LIKE ?", "%#{keyword}%") }
   end
   
   def self.ransackable_attributes(auth_object = nil)
-   ["title"] # 検索可能な属性名を指定
+   ["title","author","category","published_day","posts_count","avg_difficulty"] # 検索可能な属性名を指定
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["posts"] # 検索可能な関連名を指定
   end
 end

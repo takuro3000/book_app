@@ -1,52 +1,60 @@
 <h1>New Book</h1>
 
-<%= form_with model: @book , url: admin_books_path do |form| %>
+<%= form_with model: @book, url: admin_books_path do |form| %>
   <div>
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, id: 'book_title' %>
+    <%= button_tag "検索", type: 'button', id: 'search_button' %>  <!-- タイプをbuttonに -->
   </div>
 
   <div>
     <%= form.label :author %><br>
-    <%= form.text_field :author %>
+    <%= form.text_field :author, id: 'book_author' %>
   </div>
 
   <div>
     <%= form.label :description %><br>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, id: 'book_description' %>
   </div>
 
   <div>
     <%= form.label :published_day %><br>
-    <%= form.date_field :published_day %>
+    <%= form.date_field :published_day, id: 'book_published_day' %>
   </div>
 
   <div>
     <%= form.label :volume %><br>
-    <%= form.number_field :volume %>
+    <%= form.number_field :volume, id: 'book_volume' %>
   </div>
 
   <div>
     <%= form.label :language %><br>
-    <%= form.text_field :language %>
+    <%= form.text_field :language, id: 'book_language' %>
   </div>
 
   <div>
     <%= form.label :company %><br>
-    <%= form.text_field :company %>
+    <%= form.text_field :company, id: 'book_company' %>
   </div>
 
   <div>
     <%= form.label :link %><br>
-    <%= form.text_field :link %>
+    <%= form.text_field :link, id: 'book_link' %>
+  </div>
+
+  <div>
+    <%= form.label :category %><br>
+    <%= form.text_field :category, id: 'book_category' %>
   </div>
 
   <div>
     <%= form.label :image %><br>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, id: 'book_image' %>
   </div>
 
   <div>
-    <%= form.submit "投稿"%>
+    <%= form.submit "投稿" %>  <!-- ここでフォームを送信 -->
   </div>
 <% end %>
+
+<%= javascript_include_tag 'search_book.js' %>

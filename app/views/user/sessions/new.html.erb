@@ -5,6 +5,11 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" }) do |f| %>
         <div class="mb-3">
+          <%= f.label :custom_id, class: "form-label" %>
+          <%= f.text_field :custom_id, autofocus: true, autocomplete: "custom_id", class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
