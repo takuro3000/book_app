@@ -33,20 +33,44 @@
 
             <!-- User Comments/Activities Section -->
             <section>
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4>自分の投稿</h4>
+                <% if user_signed_in? %>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4>自分の投稿</h4>
+                        <% if @user_posts.any?%>
+                            <%= link_to edit_book_post_path(@book) do %>
+                                編集する
+                            <% end %>
+                        <% else %>
+                            <%= link_to new_book_post_path(@book) do %>
+                                投稿する
+                            <% end %>
+                        <% end %>
+                    </div>
                     <% if @user_posts.any?%>
-                        <%= link_to edit_book_post_path(@book) do %>
-                            編集する
+                        <% @user_posts.each do |user_post| %>
+                            <div class="comment-section">
+                                <div class="d-flex align-items-start">
+                                    <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
+                                    <div>
+                                        <%= link_to user_path(current_user) do %>
+                                            <h6><%= current_user.name %> <%= current_user.level%></h6>
+                                        <% end %>
+                                        <div class="difficulty_rating mb-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span>難易度Lv: <%= user_post.difficulty%></span>
+                                            </div>
+                                            <div class="progress mt-2" style="width: 50%;">
+                                                <div class="progress-bar" role="progressbar" style="width: <%= user_post.difficulty.round(1).to_f*100/5 %>%;" aria-valuenow="<%= user_post.difficulty.round(1).to_f*100/5 %>" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                        <p class="user-post-content" id="user_post_<%= user_post.id %>"><%= user_post.content %></p>
+                                        <button class="btn btn-link p-0 show-more-btn" id="showMoreBtn_<%= user_post.id %>" style="display: none;">続きを読む</button>
+                                        <small class="text-muted">投稿日: <%= user_post.created_at.strftime('%Y/%m/%d') %></small>
+                                    </div>
+                                </div>
+                            </div>
                         <% end %>
                     <% else %>
-                        <%= link_to new_book_post_path(@book) do %>
-                            投稿する
-                        <% end %>
-                    <% end %>
-                </div>
-                <% if @user_posts.any?%>
-                    <% @user_posts.each do |user_post| %>
                         <div class="comment-section">
                             <div class="d-flex align-items-start">
                                 <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
@@ -54,32 +78,10 @@
                                     <%= link_to user_path(current_user) do %>
                                         <h6><%= current_user.name %> <%= current_user.level%></h6>
                                     <% end %>
-                                    <div class="difficulty_rating mb-2">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <span>難易度Lv: <%= user_post.difficulty%></span>
-                                        </div>
-                                        <div class="progress mt-2" style="width: 50%;">
-                                            <div class="progress-bar" role="progressbar" style="width: <%= user_post.difficulty.round(1).to_f*100/5 %>%;" aria-valuenow="<%= user_post.difficulty.round(1).to_f*100/5 %>" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <p class="user-post-content" id="user_post_<%= user_post.id %>"><%= user_post.content %></p>
-                                    <button class="btn btn-link p-0 show-more-btn" id="showMoreBtn_<%= user_post.id %>" style="display: none;">続きを読む</button>
-                                    <small class="text-muted">投稿日: <%= user_post.created_at.strftime('%Y/%m/%d') %></small>
                                 </div>
                             </div>
                         </div>
                     <% end %>
-                <% else %>
-                    <div class="comment-section">
-                        <div class="d-flex align-items-start">
-                            <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
-                            <div>
-                                <%= link_to user_path(current_user) do %>
-                                    <h6><%= current_user.name %> <%= current_user.level%></h6>
-                                <% end %>
-                            </div>
-                        </div>
-                    </div>
                 <% end %>
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4>ユーザーの投稿</h4>
@@ -103,9 +105,16 @@
                                 </div>
                                 <p class="post-content" id="post_<%= post.id %>"><%= post.content %></p>
                                 <button class="btn btn-link p-0 read-more-btn" id="readMoreBtn_<%= post.id %>" style="display: none;">続きを読む</button>
-                                <small class="text-muted" id="like_btn_<%= post.id %>">
-                                    <%= render "user/likes/btn", post: post %>
-                                </small>
+                                <% if user_signed_in? %>
+                                    <small class="text-muted" id="like_btn_<%= post.id %>">
+                                        <%= render "user/likes/btn", post: post %>
+                                    </small>
+                                <% else %>
+                                    <small class="text-muted" id="like_btn_<%= post.id %>">
+                                        <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                                        <%= post.likes.count %> いいね
+                                    </small>
+                                <% end %>
                                 <small class="text-muted">投稿日: <%= post.created_at.strftime('%Y/%m/%d') %></small>
                             </div>
                         </div>
