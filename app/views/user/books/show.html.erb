@@ -50,7 +50,11 @@
                         <% @user_posts.each do |user_post| %>
                             <div class="comment-section">
                                 <div class="d-flex align-items-start">
-                                    <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
+                                    <% if current_user.icon.attached? %>
+                                        <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
+                                    <% else %>
+                                        <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                                    <% end %>
                                     <div>
                                         <%= link_to user_path(current_user) do %>
                                             <h6><%= current_user.name %> <%= current_user.level%></h6>
@@ -73,7 +77,11 @@
                     <% else %>
                         <div class="comment-section">
                             <div class="d-flex align-items-start">
-                                <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
+                                <% if current_user.icon.attached? %>
+                                    <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
+                                <% else %>
+                                    <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                                <% end %>
                                 <div>
                                     <%= link_to user_path(current_user) do %>
                                         <h6><%= current_user.name %> <%= current_user.level%></h6>
