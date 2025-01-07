@@ -4,18 +4,10 @@
       <h1 class="text-center my-4">レビューの投稿</h1>
 
       <%= form_with model: @post, url: book_posts_path(@book), html: { class: 'form-horizontal' } do |form| %>
-        <div class="main-rating">
-          <div class="ratings mb-3">
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-            <i class="fa-regular fa-star"></i>
-          </div>
-          <div class="ms-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+        <div class="mb-3">
+          <%= form.label :difficulty, class: "form-label" %>
+          <%= form.number_field :difficulty, class: "form-control", in: 1..5, step: 1 %>
         </div>
-        <%= form.hidden_field :book_id, value: @book.id %>
-        <%= form.hidden_field :difficulty, id: "rating-value" %>
 
         <div class="mb-3">
           <%= form.label :content, class: "form-label" %>
@@ -29,5 +21,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag 'new_post.js' %>
