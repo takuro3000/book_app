@@ -2,6 +2,19 @@
     text-decoration: none;
 }
 
+a.row {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.row h4 ,
+a.row h4:hover,
+a.row h4:visited,
+a.row h4:focus,
+a.row h4:active {
+    color: #007BFF;
+}
+
 .book-img {
     max-width: 150px;
     height: auto;
