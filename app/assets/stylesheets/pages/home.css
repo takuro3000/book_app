@@ -30,3 +30,9 @@
     background: linear-gradient(to right, #ffa94d, #ff6b6b);
     border-radius: 5px;
 }
+
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
