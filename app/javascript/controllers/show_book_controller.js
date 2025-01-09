@@ -1,5 +1,12 @@
-document.addEventListener("turbo:load", function() {
-    // ユーザーの各投稿の高さを確認
+// app/javascript/controllers/show_book_controller.js
+import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+  connect() {
+    // ここに書いた処理は、コントローラがアタッチされたタイミングで毎回実行される
+    console.log("show_book_controller connected!!")
+
+    // 以下、もともと show_book.js に書いていた処理をペーストする
     const userPosts = document.querySelectorAll('.user-post-content'); // 全てのユーザー投稿を取得
     userPosts.forEach(postElement => {
         const maxAllowedHeight = 96; // 約4行分の高さ
@@ -54,4 +61,7 @@ document.addEventListener("turbo:load", function() {
             }
         }
     });
-});
+
+    // ...
+  }
+}

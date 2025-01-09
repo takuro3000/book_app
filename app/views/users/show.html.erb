@@ -1,7 +1,11 @@
 <main class="container mt-4">
     <div class="row">
         <aside class="col-md-3">
-            <%= image_tag @user.icon, class: "profile-img" %>
+            <% if @user.icon.attached? %>
+                <%= image_tag @user.icon, class: "profile-img" %>
+            <% else %>
+                <%= image_tag 'default_icon.webp', class: "profile-img" %>
+            <% end %>
 
             <!-- Name and Username -->
             <h2 class="profile-name"><%= @user.name%></h2>
@@ -24,12 +28,15 @@
             <p class="bio">
                 <%= @user.self_introduction%>
             </p>
-            <% if @user.id == current_user.id %>
-                <%= link_to "プロフィールの編集", edit_user_path(@user) %>
+
+            <% if user_signed_in? %>
+                <% if @user.id == current_user.id %>
+                    <%= link_to "プロフィールの編集", edit_user_path(@user) %>
+                <% end %>
             <% end %>
         </aside>
         <section class="col-md-9">
-            <h3 class= "ms-3 mb-3">レビューした本一覧</h3>
+            <h3 class= "ms-3 mb-3 mt-3">レビューした本一覧</h3>
             <div class="row">
                 <% @books.each do |book| %>
                     <div class="col-md-3">

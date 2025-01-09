@@ -1,14 +1,21 @@
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Hero セクション全体の背景をグラデーションや色で装飾 */
+.hero-section {
+    /* 好きな画像を設定する場合
+       background: url('/assets/hero-bg.jpg') center/cover no-repeat;
+     */
+    min-height: 60vh; /* 画面全体を埋めたい場合は 100vh に変更 */
     margin: 0;
-}
-.center-content {
-    text-align: center;
-}
-
+  }
+  
+  .hero-content {
+    height: 100%;
+    padding: 4rem 1rem; /* 高さと余白を調整 */
+  }
+  
+  .card {
+    border-radius: 0.75rem;
+  }
+  
 .main-heading {
     font-size: 5.5rem;
     font-weight: bold;
@@ -22,3 +29,4 @@
     margin-top: 10px;
     color: #555;
 }
+  

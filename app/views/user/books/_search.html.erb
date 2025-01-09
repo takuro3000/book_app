@@ -1,14 +1,57 @@
-<%= search_form_for @q, url: books_path, method: :get do |f| %>
-  <%= f.search_field :title_or_author_cont, placeholder: 'キーワード検索' %>
+<%= search_form_for @q, url: books_path, method: :get, class: "row g-3 align-items-end" do |f| %>
+  <!-- キーワード検索 -->
+  <div class="col-md-4">
+    <div class="form-floating">
+      <%= f.search_field :title_or_author_cont, 
+          class: "form-control", 
+          placeholder: "キーワード検索" %>
+      <label>キーワード検索</label>
+    </div>
+  </div>
 
-  <%= f.label :category_eq, "カテゴリー" %>
-  <%= f.select :category_eq, options_for_select(@categories), { include_blank: '選択してください' } %>
+  <!-- カテゴリー -->
+  <div class="col-auto">
+    <div class="form-floating">
+      <%= f.select :category_eq, 
+          options_for_select(@categories), 
+          { include_blank: '選択してください' }, 
+          class: "form-select" %>
+      <label>カテゴリー</label>
+    </div>
+  </div>
 
-  <%= f.label :avg_difficulty, "難易度" %>
-  <%= f.number_field :avg_difficulty_gteq, step: 0.1 %>以上
-  <%= f.number_field :avg_difficulty_lteq, step: 0.1 %>以下
+  <!-- 難易度(以上) -->
+  <div class="col-md-2">
+    <div class="form-floating">
+      <%= f.number_field :avg_difficulty_gteq, 
+          step: 0.1, 
+          class: "form-control", 
+          placeholder: "難易度(以上)" %>
+      <label>難易度(以上)</label>
+    </div>
+  </div>
 
-  <%= f.submit '検索' %>
-  <%= sort_link(@q, :published_day, "出版年順") %>
-  <%= sort_link(@q, :posts_count, "投稿数順") %>
+  <!-- 難易度(以下) -->
+  <div class="col-md-2">
+    <div class="form-floating">
+      <%= f.number_field :avg_difficulty_lteq, 
+          step: 0.1, 
+          class: "form-control", 
+          placeholder: "難易度(以下)" %>
+      <label>難易度(以下)</label>
+    </div>
+  </div>
+
+  <!-- 検索ボタン -->
+  <div class="col-auto">
+    <%= f.submit '検索', class: "btn btn-primary" %>
+  </div>
+
+  <!-- ソートリンクをボタンとして表示 -->
+  <div class="col-auto">
+    <div class="btn-group" role="group" aria-label="Sort options">
+      <%= sort_link(@q, :published_day, "出版年順", class: "btn btn-outline-secondary") %>
+      <%= sort_link(@q, :posts_count, "投稿数順", class: "btn btn-outline-secondary") %>
+    </div>
+  </div>
 <% end %>
