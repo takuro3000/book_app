@@ -31,7 +31,7 @@
     border-radius: 5px;
 }
 
-.card-text {
+.carousel-inner .card-text {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
