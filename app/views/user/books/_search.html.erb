@@ -54,8 +54,8 @@
   <!-- ソートリンクをボタンとして表示 -->
   <div class="col-auto">
     <div class="btn-group" role="group" aria-label="Sort options">
-      <%= sort_link(@q, :published_day, "出版年順", class: "btn btn-outline-secondary") %>
-      <%= sort_link(@q, :posts_count, "投稿数順", class: "btn btn-outline-secondary") %>
+      <%= sort_link(@q, :published_day, "出版年順", { default_order: :desc }, class: "btn btn-outline-secondary") %>
+      <%= sort_link(@q, :posts_count, "投稿数順", { default_order: :desc }, class: "btn btn-outline-secondary") %>
     </div>
   </div>
 <% end %>
