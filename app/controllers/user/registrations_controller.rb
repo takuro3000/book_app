@@ -38,11 +38,20 @@ class User::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def create
+    super do |resource|
+      # resource が保存に成功していれば、flash に custom_id をセット
+      if resource.persisted?
+        flash[:custom_id] = resource.custom_id
+      end
+    end
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
   # If you have extra params to permit, append them to the sanitizer.

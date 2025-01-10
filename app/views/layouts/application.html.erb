@@ -15,5 +15,10 @@
   <body>
     <%= render 'layouts/navbar'%>
     <%= yield %>
+    <% if flash[:custom_id].present? %>
+      <script>
+        alert("あなたのカスタムIDは <%= flash[:custom_id] %> です");
+      </script>
+    <% end %>
   </body>
 </html>
