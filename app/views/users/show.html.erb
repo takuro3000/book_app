@@ -13,10 +13,10 @@
             <!-- Social Icons -->
             <div class="social-icons">
                 <% if @user.github_url.present?%>
-                    <a href="<%= @user.github_url%>"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.github.com/<%= @user.github_url%>"><i class="fa-brands fa-github"></i></a>
                 <% end %>
                 <% if @user.x_url.present?%>
-                    <a href="<%= @user.x_url%>"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.x.com/<%= @user.x_url%>"><i class="fa-brands fa-x-twitter"></i></a>
                 <% end %>
             </div>
 
