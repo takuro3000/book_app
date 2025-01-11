@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one_attached :icon
   validates :name, presence: true, length: { maximum: 100 }
   validates :self_introduction, length: { maximum: 200 }
+  validates :level, inclusion: { in: ["初級エンジニア", "中級エンジニア", "上級エンジニア"] }
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
