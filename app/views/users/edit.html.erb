@@ -6,7 +6,7 @@
       <%= form_with model: @user, url: user_path(@user), html: { class: 'form-horizontal' } do |form| %>
         <div class="mb-3">
           <%= form.label :name, class: "form-label" %>
-          <%= form.text_field :name, class: "form-control", autofocus: true %>
+          <%= form.text_field :name, class: "form-control", autofocus: true, maxlength: 100, required: true %>
         </div>
 
         <div class="mb-3">
