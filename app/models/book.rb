@@ -2,6 +2,8 @@ class Book < ApplicationRecord
   has_one_attached :image
   has_many :posts, dependent: :destroy
 
+  validate :image_presence
+
   scope :latest, -> { order(published_day: :desc) }
   scope :order_by_post_count, -> do
     sql = <<~SQL
@@ -61,5 +63,11 @@ class Book < ApplicationRecord
 
   def self.ransackable_associations(auth_object = nil)
     ["posts"] # 検索可能な関連名を指定
+  end
+
+  private
+
+  def image_presence
+    errors.add(:image, "を添付してください") unless image.attached?
   end
 end

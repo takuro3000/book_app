@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_25_075422) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_11_055318) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -40,14 +40,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_075422) do
   end
 
   create_table "admins", force: :cascade do |t|
-    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.string "custom_id"
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
@@ -88,7 +87,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_075422) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -102,7 +100,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_075422) do
     t.string "level"
     t.string "custom_id"
     t.index ["custom_id"], name: "index_users_on_custom_id", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -14,6 +14,17 @@
 
   <body>
     <%= render 'layouts/navbar'%>
+    
+    <% if flash[:custom_id].present? %>
+      <div class="container mt-3">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          あなたのカスタムIDは <h4 class="d-inline"><%= flash[:custom_id] %></h4> です。<br>
+          このカスタムIDはログインの際に必要です！コピーしてメモ帳に保存することをおすすめします。
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

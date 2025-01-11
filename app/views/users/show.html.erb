@@ -50,7 +50,7 @@
                                             <div class="progress-bar" role="progressbar" style="width: <%= book.post_difficulty_percentage %>%;" aria-valuenow="<%= book.post_difficulty_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
-                                    <p class="product-title"><%= book.title %></p>
+                                    <p class="card-text product-title"><%= book.title %></p>
                                     <small class="price">投稿数：<%= book.posts.count %></small>
                                 </div>
                             </div>
@@ -58,6 +58,7 @@
                     </div>
                 <% end %>
             </div>
+            <%= paginate @books, theme: 'bootstrap-5' %>
         </section>
     </div>
 </main>
