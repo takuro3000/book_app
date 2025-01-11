@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one_attached :icon
   validates :name, presence: true, length: { maximum: 100 }
+  validates :self_introduction, length: { maximum: 200 }
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
