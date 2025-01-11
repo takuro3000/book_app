@@ -6,12 +6,12 @@
       <%= form_with model: @user, url: user_path(@user), html: { class: 'form-horizontal' } do |form| %>
         <div class="mb-3">
           <%= form.label :name, class: "form-label" %>
-          <%= form.text_field :name, class: "form-control", autofocus: true %>
+          <%= form.text_field :name, class: "form-control", autofocus: true, maxlength: 100, required: true %>
         </div>
 
         <div class="mb-3">
           <%= form.label :self_introduction, class: "form-label" %>
-          <%= form.text_area :self_introduction, class: "form-control", rows: 5 %>
+          <%= form.text_area :self_introduction, class: "form-control", rows: 5, maxlength: 200 %>
         </div>
 
         <div class="mb-3">
@@ -21,12 +21,18 @@
 
         <div class="mb-3">
           <%= form.label :x_url, class: "form-label" %>
-          <%= form.text_field :x_url, class: "form-control" %>
+          <div class="input-group">
+            <span class="input-group-text">https://www.x.com/</span>
+            <%= form.text_field :x_url, class: "form-control" %>
+          </div>
         </div>
 
         <div class="mb-3">
           <%= form.label :github_url, class: "form-label" %>
-          <%= form.text_field :github_url, class: "form-control" %>
+          <div class="input-group">
+            <span class="input-group-text">https://www.github.com/</span>
+            <%= form.text_field :github_url, class: "form-control" %>
+          </div>
         </div>
 
         <div class="mb-3">
