@@ -17,10 +17,9 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :books, only: %i[index show] do
-      resources :posts, only: %i[index new create edit update]
-    end
-    resources :posts, only: %i[index new create edit update] do
-      resources :likes, only: %i[create destroy]
+      resources :posts, only: %i[index new create edit update] do
+        resources :likes, only: %i[create destroy]
+      end
     end
   end
   resources :users, only: %i[show edit update]

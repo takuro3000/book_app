@@ -1,10 +1,16 @@
 class User::PostsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_book_and_post, only: %i[edit update]
+  before_action :authorize_user!, only: %i[edit update]
   def index
   end
 
   def new
     @post = Post.new
     @book = Book.find(params[:book_id])
+  end
+
+  def edit
   end
 
   def create
@@ -18,16 +24,8 @@ class User::PostsController < ApplicationController
     end
   end
 
-  def edit
-    @book = Book.find(params[:book_id])
-    @post = current_user.posts.where(book_id: @book.id)[0]
-  end
-
   def update
-    @book = Book.find(params[:book_id])
-    @post = current_user.posts.where(book_id: @book.id)[0]
     if @post.update(post_params)
-      @post.update(user_id: current_user.id)
       redirect_to book_path(@book)
     else
       render :edit
@@ -35,6 +33,15 @@ class User::PostsController < ApplicationController
   end
 
   private
+  def set_book_and_post
+    @book = Book.find(params[:book_id])
+    @post = @book.posts.find(params[:id])
+  end
+
+  def authorize_user!
+    redirect_to root_path, alert: "この投稿を編集する権限がありません。" if @post.user_id != current_user.id
+  end
+
   def post_params
     params.require(:post).permit(:difficulty, :content)
   end

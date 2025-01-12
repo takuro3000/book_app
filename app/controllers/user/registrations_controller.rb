@@ -41,9 +41,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create
     super do |resource|
       # resource が保存に成功していれば、flash に custom_id をセット
-      if resource.persisted?
-        flash[:custom_id] = resource.custom_id
-      end
+      flash[:custom_id] = resource.custom_id if resource.persisted?
     end
   end
 

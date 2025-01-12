@@ -6,7 +6,7 @@ class Book < ApplicationRecord
 
   scope :latest, -> { order(published_day: :desc) }
   scope :order_by_post_count, -> do
-    sql = <<~SQL
+    sql = <<~SQL.squish
       LEFT OUTER JOIN (
         SELECT c.book_id, COUNT(*) AS cnt
         FROM posts c 
