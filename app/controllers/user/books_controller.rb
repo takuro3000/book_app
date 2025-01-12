@@ -1,7 +1,7 @@
 class User::BooksController < ApplicationController
   def index
     @q = Book.ransack(params[:q])
-    @categories = Book.pluck(:category).uniq
+    @categories = Book.distinct.pluck(:category)
     @books = @q.result(distinct: true).page(params[:page]).per(10)
   end
 

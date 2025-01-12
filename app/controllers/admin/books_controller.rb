@@ -7,9 +7,13 @@ class Admin::BooksController < ApplicationController
     @books = Book.all
   end
 
+  def show; end
+
   def new
     @book = Book.new
   end
+
+  def edit; end
 
   def create
     @book = Book.new(book_params)
@@ -19,10 +23,6 @@ class Admin::BooksController < ApplicationController
       render :new
     end
   end
-
-  def show; end
-
-  def edit; end
 
   def update
     if @book.update(book_params)
