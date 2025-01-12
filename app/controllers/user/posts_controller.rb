@@ -1,10 +1,16 @@
 class User::PostsController < ApplicationController
+  before_action :authenticate_user!
   def index
   end
 
   def new
     @post = Post.new
     @book = Book.find(params[:book_id])
+  end
+
+  def edit
+    @book = Book.find(params[:book_id])
+    @post = current_user.posts.where(book_id: @book.id)[0]
   end
 
   def create
@@ -16,11 +22,6 @@ class User::PostsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    @book = Book.find(params[:book_id])
-    @post = current_user.posts.where(book_id: @book.id)[0]
   end
 
   def update
