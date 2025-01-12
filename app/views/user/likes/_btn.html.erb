@@ -1,10 +1,11 @@
 <% if current_user.already_liked?(post) %>
-  <%= link_to post_like_path(post_id: post.id, id: current_user.likes.find_by(post_id: post.id)), method: :delete, remote: true, data: { "turbolinks" => false } do %>
+  <% like = current_user.likes.find_by(post_id: post.id) %>
+  <%= link_to book_post_like_path(post.book, post, like), method: :delete, remote: true, data: { turbolinks: false } do %>
     <i class="fa-solid fa-heart" aria-hidden="true"></i>
     <%= post.likes.count %> いいね
   <% end %>
 <% else %>
-  <%= link_to post_likes_path(post_id: post.id), method: :post, remote: true, data: { "turbolinks" => false } do %>
+  <%= link_to book_post_likes_path(post.book, post), method: :post, remote: true, data: { turbolinks: false } do %>
     <i class="fa-regular fa-heart" aria-hidden="true"></i>
     <%= post.likes.count %> いいね
   <% end %>

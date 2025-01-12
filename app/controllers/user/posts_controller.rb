@@ -35,11 +35,11 @@ class User::PostsController < ApplicationController
   private
   def set_book_and_post
     @book = Book.find(params[:book_id])
-    @post = current_user.posts.find_by(book_id: @book.id)
+    @post = @book.posts.find(params[:id])
   end
 
   def authorize_user!
-    redirect_to root_path, alert: "この投稿を編集する権限がありません。" unless @post
+    redirect_to root_path, alert: "この投稿を編集する権限がありません。" if @post.user_id != current_user.id
   end
 
   def post_params
