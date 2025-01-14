@@ -1,32 +1,48 @@
 /* Hero セクション全体の背景をグラデーションや色で装飾 */
 .hero-section {
-    /* 好きな画像を設定する場合
-       background: url('/assets/hero-bg.jpg') center/cover no-repeat;
-     */
-    min-height: 60vh; /* 画面全体を埋めたい場合は 100vh に変更 */
-    margin: 0;
-  }
-  
-  .hero-content {
-    height: 100%;
-    padding: 4rem 1rem; /* 高さと余白を調整 */
-  }
-  
-  .card {
-    border-radius: 0.75rem;
-  }
-  
+  /* 好きな画像を設定する場合
+     background: url('/assets/hero-bg.jpg') center/cover no-repeat;
+   */
+  min-height: 60vh; /* 画面全体を埋めたい場合は 100vh に変更 */
+  margin: 0;
+}
+
+.hero-content {
+  height: 100%;
+  padding: 4rem 1rem; /* 高さと余白を調整 */
+}
+
+.card {
+  border-radius: 0.75rem;
+}
+
+/* デスクトップ向けの大きなフォントサイズ設定 */
 .main-heading {
-    font-size: 5.5rem;
-    font-weight: bold;
+  font-size: 5.5rem;
+  font-weight: bold;
 }
 .subheading {
-    font-size: 2.5rem;
-    margin-top: 20px;
+  font-size: 2.5rem;
+  margin-top: 20px;
 }
 .description {
-    font-size: 1.25rem;
-    margin-top: 10px;
-    color: #555;
+  font-size: 1.25rem;
+  margin-top: 10px;
+  color: #555;
 }
-  
+
+/* スマートフォンなど小さな画面向けのレスポンシブ調整 */
+@media (max-width: 576px) {
+.main-heading {
+  font-size: 3.5rem;
+}
+.subheading {
+  font-size: 1.75rem;
+}
+.description {
+  font-size: 1rem;
+}
+.hero-content {
+  padding: 2rem 1rem;
+}
+}
