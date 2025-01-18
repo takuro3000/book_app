@@ -18,6 +18,4 @@
  @import 'pages/about';
  @import 'user/books/show';
  @import 'user/books/index';
- @import 'user/posts/new';
- @import 'user/posts/edit';
  @import 'users/show';
