@@ -1,24 +1,22 @@
-# README
+# TechBook Finder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+Techbook Finderは「自分に合った難易度のプログラミング本との出会い」をサポートするために開発したアプリです。
+技術書には幅広い難易度があります 。ユーザーによる難易度レビューをもとに、自分にぴったりの技術書を見つけることができます
+オリジナルプロダクトの URL
+https://techbookfinder.com/
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 画面キャプチャ
+## 使用技術
+- フロントエンド
+    - Rails7.1.2
+    - Bootstrap5.3
+- バックエンド
+    - Rails7.1.2(Ruby3.2.4)
+- データベース
+    - MySQL
+- インフラ
+    - AWS
+## ER 図
+## インフラ構成図
+## 機能一覧
