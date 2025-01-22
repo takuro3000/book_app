@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
   root "pages#home"
   get "about" , to: "pages#about"
+  get "privacy_policy", to: "pages#privacy_policy"
+  get "terms" , to: "pages#terms"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
