@@ -51,10 +51,12 @@
                         <% @user_posts.each do |user_post| %>
                             <div class="comment-section">
                                 <div class="d-flex align-items-start">
-                                    <% if current_user.icon.attached? %>
-                                        <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
-                                    <% else %>
-                                        <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                                    <%= link_to user_path(current_user) do %>
+                                        <% if current_user.icon.attached? %>
+                                            <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
+                                        <% else %>
+                                            <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                                        <% end %>
                                     <% end %>
                                     <div class="w-100">
                                         <%= link_to user_path(current_user) do %>
@@ -78,10 +80,12 @@
                     <% else %>
                         <div class="comment-section">
                             <div class="d-flex align-items-start">
-                                <% if current_user.icon.attached? %>
-                                    <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
-                                <% else %>
-                                    <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                                <%= link_to user_path(current_user) do %>
+                                    <% if current_user.icon.attached? %>
+                                        <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
+                                    <% else %>
+                                        <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                                    <% end %>
                                 <% end %>
                                 <div>
                                     <%= link_to user_path(current_user) do %>
@@ -99,10 +103,12 @@
                 <% @posts.each do |post| %>
                     <div class="comment-section">
                         <div class="d-flex align-items-start">
-                            <% if post.user.icon.attached? %>
-                                <%= image_tag post.user.icon ,class:"icon-img rounded-circle me-3"%>
-                            <% else %>
-                                <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                            <%= link_to user_path(post.user) do %>
+                                <% if post.user.icon.attached? %>
+                                    <%= image_tag post.user.icon ,class:"icon-img rounded-circle me-3"%>
+                                <% else %>
+                                    <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
+                                <% end %>
                             <% end %>
                             <div class="w-100">
                                 <%= link_to user_path(post.user) do %>
