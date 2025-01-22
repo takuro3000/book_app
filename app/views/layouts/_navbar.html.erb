@@ -22,7 +22,7 @@
         <% elsif user_signed_in? %>
           <li class="nav-item">
             <%= link_to books_path, class: "nav-link" do %>
-              本を探す
+              <i class="fa-solid fa-magnifying-glass"></i> 本を探す
             <% end %>
           </li>
           <li class="nav-item">
@@ -39,7 +39,7 @@
         <% else %>
           <li class="nav-item">
             <%= link_to books_path, class: "nav-link" do %>
-              本を探す
+              <i class="fa-solid fa-magnifying-glass"></i> 本を探す
             <% end %>
           </li>
           <li class="nav-item">
