@@ -1,22 +1,22 @@
-<%= search_form_for @q, url: books_path, method: :get, class: "row g-3 align-items-end" do |f| %>
+<%= search_form_for @q, url: books_path, method: :get, class: "row g-3 align-items-center" do |f| %>
   <!-- キーワード検索 -->
   <div class="col-md-4">
     <div class="form-floating">
       <%= f.search_field :title_or_author_cont, 
           class: "form-control", 
           placeholder: "キーワード検索" %>
-      <label>キーワード検索</label>
+      <label for="q_title_or_author_cont">キーワード検索</label>
     </div>
   </div>
 
   <!-- カテゴリー -->
-  <div class="col-auto">
+  <div class="col-md-3">
     <div class="form-floating">
       <%= f.select :category_eq, 
           options_for_select(@categories), 
           { include_blank: '選択してください' }, 
           class: "form-select" %>
-      <label>カテゴリー</label>
+      <label for="q_category_eq">カテゴリー</label>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
           max: 5.0, 
           class: "form-control", 
           placeholder: "難易度(以上)" %>
-      <label>難易度(以上)</label>
+      <label for="q_avg_difficulty_gteq">難易度(以上)</label>
     </div>
   </div>
 
@@ -42,17 +42,17 @@
           max: 5.0, 
           class: "form-control", 
           placeholder: "難易度(以下)" %>
-      <label>難易度(以下)</label>
+      <label for="q_avg_difficulty_lteq">難易度(以下)</label>
     </div>
   </div>
 
   <!-- 検索ボタン -->
-  <div class="col-auto">
+  <div class="col-md-1 d-grid">
     <%= f.submit '検索', class: "btn btn-primary" %>
   </div>
 
   <!-- ソートリンクをボタンとして表示 -->
-  <div class="col-auto">
+  <div class="col-12 mt-3">
     <div class="btn-group" role="group" aria-label="Sort options">
       <%= sort_link(@q, :published_day, "出版年順", { default_order: :desc }, class: "btn btn-outline-secondary") %>
       <%= sort_link(@q, :posts_count, "投稿数順", { default_order: :desc }, class: "btn btn-outline-secondary") %>
