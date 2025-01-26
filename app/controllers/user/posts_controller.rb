@@ -2,8 +2,6 @@ class User::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_book_and_post, only: %i[edit update]
   before_action :authorize_user!, only: %i[edit update]
-  def index
-  end
 
   def new
     @post = Post.new
