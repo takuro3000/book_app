@@ -1,0 +1,23 @@
+<div id="<%= carousel_id %>" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-inner">
+    <% items.each_slice(slice_size).with_index do |item_group, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <div class="row text-center">
+          <% item_group.each do |item| %>
+            <%= render partial: 'pages/book_card', locals: { book: item } %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Carousel controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#<%= carousel_id %>" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#<%= carousel_id %>" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
