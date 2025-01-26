@@ -15,7 +15,7 @@
           <div class="carousel-item <%= 'active' if index == 0 %>">
             <div class="row text-center">
               <% book_group.each do |book| %>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                   <%= link_to book_path(book), class: "card product-card" do %>
                     <%= image_tag book.image, class: "card-img-top" %>
                     <div class="card-body">
@@ -117,7 +117,7 @@
           <div class="carousel-item <%= 'active' if index == 0 %>">
             <div class="row text-center">
               <% book_group.each do |book| %>
-                <div class="col-lg-3">
+                <div class="col-md-3">
                   <%= link_to book_path(book), class: "card product-card" do %>
                     <%= image_tag book.image, class: "card-img-top" %>
                     <div class="card-body">
