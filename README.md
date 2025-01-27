@@ -25,11 +25,11 @@ TechBook Finderは「自分に合った難易度のプログラミング本と�
     - AWS(EC2, VPC, Route53, ACM, ALB, RDS, S3)
 ## ER 図
 
-![ER図](./images/er_diaguram.png)
+![ER図](/app/assets/images/er_diaguram.png)
 
 ## インフラ構成図
 
-![インフラ構成図](./images/infra.png)
+![インフラ構成図](/app/assets/images/infra.png)
 
 ## 機能一覧
 
