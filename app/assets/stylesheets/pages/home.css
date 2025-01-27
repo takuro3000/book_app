@@ -7,6 +7,15 @@
     object-fit: contain;
 }
 
+.carousel-control-next {
+    width: 0%;
+    right: 5%;
+}
+.carousel-control-prev {
+    width: 0%;
+    left: 5%;
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     background-color: #000;

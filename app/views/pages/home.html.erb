@@ -9,98 +9,21 @@
 
   <!-- PC用カルーセル (md以上) -->
   <div class="d-none d-md-block">
-    <div id="postCarouselDesktop" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-inner">
-        <% @books_post.each_slice(4).with_index do |book_group, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="row text-center">
-              <% book_group.each do |book| %>
-                <div class="col-lg-3">
-                  <%= link_to book_path(book), class: "card product-card" do %>
-                    <%= image_tag book.image, class: "card-img-top" %>
-                    <div class="card-body">
-                      <div class="difficulty_rating justify-content-center mb-3">
-                        <span>難易度Lv: <%= book.avg_difficulty %></span>
-                        <div class="progress">
-                          <div class="progress-bar"
-                               role="progressbar"
-                               style="width: <%= book.post_difficulty_percentage %>%;"
-                               aria-valuenow="<%= book.post_difficulty_percentage %>"
-                               aria-valuemin="0"
-                               aria-valuemax="100">
-                          </div>
-                        </div>
-                      </div>
-                      <p class="card-text"><%= book.title %></p>
-                      <small class="price">投稿数：<%= book.posts.count %></small>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- Carousel controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#postCarouselDesktop" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#postCarouselDesktop" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <%= render partial: 'pages/carousel', locals: { 
+          carousel_id: 'postCarouselDesktop', 
+          items: @books_post, 
+          slice_size: 4 
+        } %>
   </div>
 
   <!-- モバイル用カルーセル (md未満) -->
   <div class="d-block d-md-none">
-    <div id="postCarouselMobile" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-inner">
-        <% @books_post.each_slice(1).with_index do |book_group, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="row text-center">
-              <% book_group.each do |book| %>
-                <div class="col-12">
-                  <%= link_to book_path(book), class: "card product-card" do %>
-                    <%= image_tag book.image, class: "card-img-top" %>
-                    <div class="card-body">
-                      <div class="difficulty_rating justify-content-center mb-3">
-                        <span>難易度Lv: <%= book.avg_difficulty %></span>
-                        <div class="progress">
-                          <div class="progress-bar"
-                               role="progressbar"
-                               style="width: <%= book.post_difficulty_percentage %>%;"
-                               aria-valuenow="<%= book.post_difficulty_percentage %>"
-                               aria-valuemin="0"
-                               aria-valuemax="100">
-                          </div>
-                        </div>
-                      </div>
-                      <p class="card-text"><%= book.title %></p>
-                      <small class="price">投稿数：<%= book.posts.count %></small>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- Carousel controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#postCarouselMobile" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#postCarouselMobile" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <%= render partial: 'pages/carousel', locals: { 
+          carousel_id: 'postCarouselMobile', 
+          items: @books_post, 
+          slice_size: 1 
+        } %>
   </div>
-
 
   <!-- ==========================
        新着の本
@@ -111,100 +34,20 @@
 
   <!-- PC用カルーセル (md以上) -->
   <div class="d-none d-md-block">
-    <div id="newCarouselDesktop" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-inner">
-        <% @books_new.each_slice(4).with_index do |book_group, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="row text-center">
-              <% book_group.each do |book| %>
-                <div class="col-lg-3">
-                  <%= link_to book_path(book), class: "card product-card" do %>
-                    <%= image_tag book.image, class: "card-img-top" %>
-                    <div class="card-body">
-                      <div class="difficulty_rating mb-3">
-                        <div class="d-flex justify-content-center">
-                          <span>難易度Lv: <%= book.avg_difficulty %></span>
-                        </div>
-                        <div class="progress mt-2">
-                          <div class="progress-bar"
-                               role="progressbar"
-                               style="width: <%= book.post_difficulty_percentage %>%;"
-                               aria-valuenow="<%= book.post_difficulty_percentage %>"
-                               aria-valuemin="0"
-                               aria-valuemax="100">
-                          </div>
-                        </div>
-                      </div>
-                      <p class="card-text"><%= book.title %></p>
-                      <small class="price">投稿数：<%= book.posts.count %></small>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- Carousel controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#newCarouselDesktop" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#newCarouselDesktop" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <%= render partial: 'pages/carousel', locals: { 
+          carousel_id: 'newCarouselDesktop', 
+          items: @books_new, 
+          slice_size: 4 
+        } %>
   </div>
 
   <!-- モバイル用カルーセル (md未満) -->
   <div class="d-block d-md-none">
-    <div id="newCarouselMobile" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-inner">
-        <% @books_new.each_slice(1).with_index do |book_group, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="row text-center">
-              <% book_group.each do |book| %>
-                <div class="col-12">
-                  <%= link_to book_path(book), class: "card product-card" do %>
-                    <%= image_tag book.image, class: "card-img-top" %>
-                    <div class="card-body">
-                      <div class="difficulty_rating mb-3">
-                        <div class="d-flex justify-content-center">
-                          <span>難易度Lv: <%= book.avg_difficulty %></span>
-                        </div>
-                        <div class="progress mt-2">
-                          <div class="progress-bar"
-                               role="progressbar"
-                               style="width: <%= book.post_difficulty_percentage %>%;"
-                               aria-valuenow="<%= book.post_difficulty_percentage %>"
-                               aria-valuemin="0"
-                               aria-valuemax="100">
-                          </div>
-                        </div>
-                      </div>
-                      <p class="card-text"><%= book.title %></p>
-                      <small class="price">投稿数：<%= book.posts.count %></small>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-      <!-- Carousel controls -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#newCarouselMobile" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#newCarouselMobile" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <%= render partial: 'pages/carousel', locals: { 
+          carousel_id: 'newCarouselMobile', 
+          items: @books_new, 
+          slice_size: 1 
+        } %>
   </div>
 
 </div>
