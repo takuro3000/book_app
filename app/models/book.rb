@@ -5,19 +5,20 @@ class Book < ApplicationRecord
   validate :image_presence
 
   scope :latest, -> { order(published_day: :desc) }
-  scope :order_by_post_count, -> do
-    sql = <<~SQL.squish
-      LEFT OUTER JOIN (
-        SELECT c.book_id, COUNT(*) AS cnt
-        FROM posts c 
-        GROUP BY c.book_id
-      ) post_counts
-      ON post_counts.book_id = books.id
-    SQL
-    joins(sql)
-    .select('DISTINCT books.*')
-    .order(Arel.sql("COALESCE(post_counts.cnt, 0) DESC"))
-  end
+  scope :with_average_difficulty_between, ->(min, max) {
+    joins(:posts)
+      .select('books.*, AVG(posts.difficulty) AS average_difficulty, COUNT(posts.id) AS posts_count')
+      .group('books.id')
+      .having('AVG(posts.difficulty) BETWEEN ? AND ?', min, max)
+  }
+
+  scope :ordered_by_posts_count, -> {
+    order('posts_count DESC')
+  }
+
+  scope :top_ranked, ->(limit = 12) {
+    limit(limit)
+  }
 
   def avg_difficulty
     unless self.posts.empty?
