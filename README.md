@@ -16,14 +16,18 @@ TechBook Finderは「自分に合った難易度のプログラミング本と�
     - Bootstrap5.3
 - バックエンド
     - Rails7.1.2(Ruby3.2.4)
-    - Nginx
-    - Puma
     - Rspec
     - Rubocop
 - データベース
     - MySQL
 - インフラ
     - AWS(EC2, VPC, Route53, ACM, ALB, RDS, S3)
+    - Nginx
+    - Puma
+- バージョン管理
+    - Git/GitHub
+- API
+    - Google Books API
 ## ER 図
 
 ![ER図](/app/assets/images/er_diaguram.png)
