@@ -16,20 +16,17 @@
       <div class="col-md-9">
         <h4 class="mb-2"><%= book.title %></h4>
         <p><%= book.author %> | <span><%= book.published_day.strftime("%Y-%m-%d") %></span></p>
-        <div class="difficulty_rating mb-2">
+        <div class="difficulty_rating mb-4">
           <div class="d-flex align-items-center">
-            <span>難易度Lv: <%= book.avg_difficulty %></span>
+            <span class="difficulty-level">難易度Lv: <%= book.avg_difficulty %></span>
           </div>
-          <div class="progress mt-2" style="width: 50%;">
+          <div class="progress" style="width: 50%;">
             <div class="progress-bar" role="progressbar" style="width: <%= book.post_difficulty_percentage %>%;" aria-valuenow="<%= book.post_difficulty_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
         <!-- Rating -->
         <div class="mb-2">
-          <span class="text-muted">レビュー数：<%= book.posts.count %></span>
-        </div>
-
-        <div class="mb-2">
+          <span class="text-muted">レビュー数：<%= book.posts.count %></span> <br>
           <span class="text-muted">カテゴリー：<%= book.category %></span>
         </div>
       </div>
