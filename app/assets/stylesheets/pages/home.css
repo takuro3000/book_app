@@ -33,8 +33,7 @@
 
 /* 難易度Lvを目立たせる */
 .difficulty-level {
-    font-size: 1.2em;       /* フォントサイズを大きく */
-    font-weight: bold;
+    font-size: 1.0em;       /* フォントサイズを大きく */
 }
 
 /* レビュー数は難易度の横に、控えめに表示 */

@@ -14,9 +14,9 @@
 
       <!-- Product Information -->
       <div class="col-md-9">
-        <h4 class="mb-2"><%= book.title %></h4>
-        <p><%= book.author %> | <span><%= book.published_day.strftime("%Y-%m-%d") %></span></p>
-        <div class="difficulty_rating mb-4">
+        <h4><%= book.title %></h4>
+        <span><%= book.author %> | <%= book.published_day.strftime("%Y-%m-%d") %></span>
+        <div class="difficulty_rating mb-4 mt-4">
           <div class="d-flex align-items-center">
             <span class="difficulty-level">難易度Lv: <%= book.avg_difficulty %></span>
           </div>
