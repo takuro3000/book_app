@@ -35,7 +35,7 @@
             <section>
                 <% if user_signed_in? %>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4>自分の投稿</h4>
+                        <h4>自分のレビュー</h4>
                         <% if @user_posts.any?%>
                             <% user_post = @user_posts.first %>
                             <%= link_to edit_book_post_path(@book, user_post) do %>
@@ -97,7 +97,7 @@
                     <% end %>
                 <% end %>
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4>ユーザーの投稿</h4>
+                    <h4>ユーザーのレビュー</h4>
                 </div>
                 <!-- Repeat this block for each comment -->
                 <% @posts.each do |post| %>
