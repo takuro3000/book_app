@@ -2,11 +2,13 @@
     text-decoration: none;
 }
 
+/* 画像を少し大きく表示（以前は150pxだったのを180pxに変更） */
 .product-card img {
-    max-height: 150px;
+    max-height: 180px;
     object-fit: contain;
 }
 
+/* カルーセルのコントロールはそのまま */
 .carousel-control-next {
     width: 0%;
     right: 5%;
@@ -23,11 +25,25 @@
     border-radius: 50%;
 }
 
-.difficulty_rating {
+/* 難易度・レビュー数のコンテナ */
+.difficulty-rating-container {
     text-align: center;
     width: 100%;
 }
 
+/* 難易度Lvを目立たせる */
+.difficulty-level {
+    font-size: 1.0em;       /* フォントサイズを大きく */
+}
+
+/* レビュー数は難易度の横に、控えめに表示 */
+.review-count {
+    font-size: 1.0em;       /* 少し小さめ */
+    color: #6c757d;         /* グレー系の控えめな色 */
+    align-self: flex-end;   /* 垂直位置の調整（必要に応じて） */
+}
+
+/* プログレスバーのスタイル */
 .progress {
     width: 100%;
     height: 10px;
@@ -40,6 +56,13 @@
     border-radius: 5px;
 }
 
+/* 本のタイトルは目立たなくする */
+.book-title {
+    font-size: 1.0em;       /* 小さめの文字サイズ */
+    color: #6c757d;         /* 落ち着いた色 */
+}
+
+/* 既存のカルーセル内のカードテキストの設定（必要ならそのまま） */
 .carousel-inner .card-text {
     overflow: hidden;
     text-overflow: ellipsis;
