@@ -13,6 +13,15 @@ a.row {
     text-decoration: none;
 }
 
+.search-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-card:hover {
+    transform: translateY(-5px);  /* カードが少し上に浮き上がる */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  /* 影を強調する */
+}
+
 .search-card-title {
     color: #6c757d;
     font-size: 1.5rem;
