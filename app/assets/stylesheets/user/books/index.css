@@ -1,3 +1,9 @@
+.btn-outline-orange:hover {
+    background-color: #ffa94d;  /* お好みのオレンジ色の16進数カラーコード */
+    border-color: #ffa94d;
+    color: #fff;
+}
+
 .row {
     text-decoration: none;
 }
@@ -7,15 +13,37 @@ a.row {
     text-decoration: none;
 }
 
-a.row h4 ,
-a.row h4:hover,
-a.row h4:visited,
-a.row h4:focus,
-a.row h4:active {
-    color: #007BFF;
+.index-book-title {
+    color: #6c757d;
+    font-size: 1.5rem;
+}
+
+.index-book-title span:hover {
+    color: #ffa94d;
+}
+
+.difficulty-level {
+    font-size: 1.2rem;
 }
 
 .book-img {
     max-width: 150px;
     height: auto;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.book-img:hover {
+    opacity: 0.5;
+}
+
+.pagination .page-link {
+    border-color: #e9ecef;
+    color: #ffa94d;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #ffa94d;  /* 少し濃いオレンジ */
+    border-color: #ffa94d;
+    color: #fff;
 }

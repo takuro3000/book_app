@@ -14,6 +14,59 @@
  *= require_tree .
  */
 
+ .custom-brand {
+    background-color: #ffa94d; /* オレンジイエローの背景色 */
+    color: #ffffff;            /* テキストは純白 */
+    font-weight: bold;         /* 太字 */
+    font-family: 'Poppins'; /* 推奨フォント */
+    padding: 5px 10px;        /* 適度な内側の余白 */
+    border-radius: 5px;        /* 角を丸くする */
+    text-decoration: none;     /* リンク下線を除去 */
+}
+
+.custom-brand:hover {
+    color: #ffffff;            /* テキストは純白 */
+}
+
+.custom-navbar {
+    background-color: transparent;  /* 背景色は無し */
+    border-bottom: 1px solid #ccc;   /* 下線として1pxのボーダーを追加（色は例としてグレー） */
+}
+
+.btn-orange {
+    background-color: #ffa94d; /* 指定のオレンジ色 */
+    color: #ffffff;            /* テキストは白 */
+    border: none;              /* ボーダーなし */
+    padding: 0.4rem 1rem;       /* 適度な内側の余白 */
+    font-weight: bold;         /* 太字 */
+    text-decoration: none;     /* リンクの下線を除去 */
+}
+  
+  /* ホバー時の背景色を少し濃くする例（お好みで調整してください） */
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange:disabled {
+    background-color: #ffa94d !important; /* 指定のオレンジ色 */
+    color: #ffffff !important;            /* テキストは白 */
+    border: none;
+    opacity: 0.7;
+}
+
+.form-select,
+.form-control:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.share-message {
+    color: #6c757d;
+}
+
+.share-message:hover {
+    color: #ffa94d;
+}
+
  @import 'pages/home';
  @import 'pages/about';
  @import 'pages/privacy_policy';

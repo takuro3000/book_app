@@ -6,6 +6,12 @@
 .product-card img {
     max-height: 180px;
     object-fit: contain;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.product-card img:hover {
+    opacity: 0.5;
 }
 
 /* カルーセルのコントロールはそのまま */
@@ -20,7 +26,7 @@
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: #000;
+    background-color: #6c757d;
     padding: 20px;
     border-radius: 50%;
 }
@@ -60,6 +66,10 @@
 .book-title {
     font-size: 1.0em;       /* 小さめの文字サイズ */
     color: #6c757d;         /* 落ち着いた色 */
+}
+
+.book-title span:hover {
+    color: #ffa94d;
 }
 
 /* 既存のカルーセル内のカードテキストの設定（必要ならそのまま） */

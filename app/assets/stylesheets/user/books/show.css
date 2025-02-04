@@ -17,6 +17,12 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.icon-img:hover {
+    opacity: 0.5;
 }
 
 .show-difficulty .progress {
@@ -31,4 +37,20 @@
 .show-difficulty .progress-bar {
     background: linear-gradient(to right, #ffa94d, #ff6b6b);
     border-radius: 10px;
+}
+
+.show-book-title {
+    color: #6c757d;         /* 落ち着いた色 */
+}
+
+.show-book-title span:hover {
+    color: #ffa94d;
+}
+
+.like-link {
+    color: #6c757d;         /* 落ち着いた色 */
+}
+
+.like-link .fa-solid {
+    color: #ffa94d;
 }

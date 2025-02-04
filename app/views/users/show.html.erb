@@ -22,7 +22,7 @@
 
             <!-- Contributions -->
             <div class="contributions"><%= @user.level %></div>
-            <div class="contributions">投稿数；<%= @user.posts.count %></div>
+            <div class="contributions">レビュー数；<%= @user.posts.count %></div>
 
             <!-- Bio -->
             <p class="bio">
@@ -36,7 +36,7 @@
             <% end %>
         </aside>
         <section class="col-md-9">
-            <h3 class= "ms-3 mb-3 mt-3">レビューした本一覧</h3>
+            <h3 class= "mb-3 mt-3">レビューした本一覧</h3>
             <div class="row">
                 <% @books.each do |book| %>
                     <div class="col-md-3">
@@ -63,7 +63,7 @@
                                         </div>
                                     </div>
                                     <!-- タイトルは控えめなスタイル -->
-                                    <p class="card-text product-title book-title"><%= book.title %></p>
+                                    <p class="card-text product-title book-title"><span><%= book.title %></span></p>
                                 </div>
                             </div>
                         <% end %>

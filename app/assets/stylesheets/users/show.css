@@ -40,6 +40,12 @@ aside {
     max-height: 200px;
     object-fit: contain;
     margin-bottom: 10px;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+}
+
+.product-img:hover {
+    opacity: 0.5;
 }
 
 .product-title {
