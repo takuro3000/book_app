@@ -48,14 +48,14 @@
 
   <!-- 検索ボタン -->
   <div class="col-md-1 d-grid">
-    <%= f.submit '検索', class: "btn btn-primary" %>
+    <%= f.submit '検索', class: "btn btn-orange" %>
   </div>
 
   <!-- ソートリンクをボタンとして表示 -->
   <div class="col-12 mt-3">
     <div class="btn-group" role="group" aria-label="Sort options">
-      <%= sort_link(@q, :published_day, "出版年順", { default_order: :desc }, class: "btn btn-outline-secondary") %>
-      <%= sort_link(@q, :posts_count, "投稿数順", { default_order: :desc }, class: "btn btn-outline-secondary") %>
+      <%= sort_link(@q, :published_day, "出版年順", { default_order: :desc }, class: "btn btn-outline-secondary btn-outline-orange") %>
+      <%= sort_link(@q, :posts_count, "投稿数順", { default_order: :desc }, class: "btn btn-outline-secondary btn-outline-orange") %>
     </div>
   </div>
 <% end %>

@@ -33,71 +33,24 @@
 
             <!-- User Comments/Activities Section -->
             <section>
-                <% if user_signed_in? %>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4>自分のレビュー</h4>
-                        <% if @user_posts.any?%>
-                            <% user_post = @user_posts.first %>
-                            <%= link_to edit_book_post_path(@book, user_post) do %>
-                                編集する
-                            <% end %>
-                        <% else %>
-                            <%= link_to new_book_post_path(@book) do %>
-                                投稿する
-                            <% end %>
-                        <% end %>
-                    </div>
-                    <% if @user_posts.any?%>
-                        <% @user_posts.each do |user_post| %>
-                            <div class="comment-section">
-                                <div class="d-flex align-items-start">
-                                    <%= link_to user_path(current_user) do %>
-                                        <% if current_user.icon.attached? %>
-                                            <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
-                                        <% else %>
-                                            <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
-                                        <% end %>
-                                    <% end %>
-                                    <div class="w-100">
-                                        <%= link_to user_path(current_user) do %>
-                                            <h6><%= current_user.name %> <%= current_user.level%></h6>
-                                        <% end %>
-                                        <div class="difficulty_rating mb-2">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span>難易度Lv: <%= user_post.difficulty%></span>
-                                            </div>
-                                            <div class="progress mt-2 w-25">
-                                                <div class="progress-bar" role="progressbar" style="width: <%= user_post.difficulty.round(1).to_f*100/5 %>%;" aria-valuenow="<%= user_post.difficulty.round(1).to_f*100/5 %>" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <p class="user-post-content" id="user_post_<%= user_post.id %>"><%= user_post.content %></p>
-                                        <button class="btn btn-link p-0 show-more-btn" id="showMoreBtn_<%= user_post.id %>" style="display: none;">続きを読む</button>
-                                        <small class="text-muted">投稿日: <%= user_post.created_at.strftime('%Y/%m/%d') %></small>
-                                    </div>
-                                </div>
-                            </div>
-                        <% end %>
-                    <% else %>
-                        <div class="comment-section">
-                            <div class="d-flex align-items-start">
-                                <%= link_to user_path(current_user) do %>
-                                    <% if current_user.icon.attached? %>
-                                        <%= image_tag current_user.icon ,class:"icon-img rounded-circle me-3"%>
-                                    <% else %>
-                                        <%= image_tag 'default_icon.webp',class:"icon-img rounded-circle me-3"%>
-                                    <% end %>
-                                <% end %>
-                                <div>
-                                    <%= link_to user_path(current_user) do %>
-                                        <h6><%= current_user.name %> <%= current_user.level%></h6>
-                                    <% end %>
-                                </div>
-                            </div>
-                        </div>
-                    <% end %>
-                <% end %>
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4>ユーザーのレビュー</h4>
+                    <% if user_signed_in? %>
+                        <% if @user_posts.any?%>
+                            <% user_post = @user_posts.first %>
+                            <%= link_to edit_book_post_path(@book, user_post), class: "btn btn-orange" do %>
+                                レビューを編集
+                            <% end %>
+                        <% else %>
+                            <%= link_to new_book_post_path(@book), class: "btn btn-orange" do %>
+                                レビューを投稿
+                            <% end %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to new_user_session_path, class: "btn btn-orange" do %>
+                            レビューを投稿
+                        <% end %>
+                    <% end %>
                 </div>
                 <!-- Repeat this block for each comment -->
                 <% @posts.each do |post| %>
@@ -112,7 +65,7 @@
                             <% end %>
                             <div class="w-100">
                                 <%= link_to user_path(post.user) do %>
-                                    <h6><%= post.user.name %> <%= post.user.level%></h6>
+                                    <h6 class="show-book-title"><span><%= post.user.name %> <%= post.user.level%></span></h6>
                                 <% end %>
                                 <div class="difficulty_rating mb-2">
                                     <div class="d-flex align-items-center">
