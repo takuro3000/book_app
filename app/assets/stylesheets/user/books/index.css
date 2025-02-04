@@ -13,12 +13,12 @@ a.row {
     text-decoration: none;
 }
 
-.index-book-title {
+.search-card-title {
     color: #6c757d;
     font-size: 1.5rem;
 }
 
-.index-book-title span:hover {
+.search-card-title span:hover {
     color: #ffa94d;
 }
 
@@ -27,14 +27,15 @@ a.row {
 }
 
 .book-img {
-    max-width: 150px;
+    max-width: 180px;
     height: auto;
-    transition-property: opacity;
-    transition-duration: 0.5s;
+    transition-property: opacity 0.5s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 .book-img:hover {
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .pagination .page-link {

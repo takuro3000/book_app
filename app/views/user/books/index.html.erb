@@ -1,38 +1,40 @@
 <div class="container mt-4">
   <h2 class="mb-4 text-center">本を探す</h2>
-  
+
   <div class="mb-4">
     <%= render 'user/books/search' %>
   </div>
-  
-  <% @books.each do |book| %>
-    <%= link_to book_path(book), class: "row border p-3 mb-3 text-decoration-none text-dark" do %>
-      <!-- Product Image -->
-      <div class="col-md-3">
-        <%= image_tag book.image, class: "img-fluid book-img rounded" %>
-      </div>
 
-      <!-- Product Information -->
-      <div class="col-md-9">
-        <div class="index-book-title"><span><%= book.title %></span></div>
-        <span class="text-muted"><%= book.author %> | <%= book.published_day.strftime("%Y-%m-%d") %></span>
-        <div class="difficulty_rating mb-4 mt-4">
-          <div class="d-flex align-items-center">
-            <span class="difficulty-level">難易度Lv: <%= book.avg_difficulty %></span>
+  <% @books.each do |book| %>
+    <div class="card mb-4 shadow-sm">
+      <%= link_to book_path(book), class: "text-decoration-none text-dark" do %>
+        <div class="row">
+          <!-- サムネイル（画像） -->
+          <div class="col-md-3 d-flex align-items-center justify-content-center p-3">
+            <%= image_tag book.image, class: "img-fluid rounded-start book-img", alt: book.title %>
           </div>
-          <div class="progress" style="width: 50%;">
-            <div class="progress-bar" role="progressbar" style="width: <%= book.post_difficulty_percentage %>%;" aria-valuenow="<%= book.post_difficulty_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+          <!-- カード本文 -->
+          <div class="col-md-9">
+            <div class="card-body">
+              <h5 class="search-card-title mb-2"><span><%= book.title %><span></h5>
+              <p class="card-text text-muted mb-2">
+                <%= book.author %> | <%= book.published_day.strftime("%Y-%m-%d") %>
+              </p>
+              <div class="difficulty_rating mb-3">
+                <p class="difficulty-level mb-1">難易度Lv: <%= book.avg_difficulty %></p>
+                <div class="progress mb-2" style="width: 50%;">
+                  <div class="progress-bar" role="progressbar" style="width: <%= book.post_difficulty_percentage %>%;" aria-valuenow="<%= book.post_difficulty_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <p class="card-text text-muted mb-1">レビュー数：<%= book.posts.count %></p>
+              <p class="card-text text-muted">カテゴリー：<%= book.category %></p>
+            </div>
           </div>
         </div>
-        <!-- Rating -->
-        <div class="mb-2">
-          <span class="text-muted">レビュー数：<%= book.posts.count %></span> <br>
-          <span class="text-muted">カテゴリー：<%= book.category %></span>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
-  
+
   <div class="d-flex justify-content-center">
     <%= paginate @books, theme: 'bootstrap-5' %>
   </div>
