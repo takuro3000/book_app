@@ -27,7 +27,7 @@ a.row {
 }
 
 .book-img {
-    max-width: 180px;
+    max-width: 150px;
     height: auto;
     transition-property: opacity 0.5s ease;
     display: block;
