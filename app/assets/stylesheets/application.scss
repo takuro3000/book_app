@@ -30,17 +30,25 @@ h4 {
 }
 
 .custom-brand {
-    background-color: #ffa94d; /* オレンジイエローの背景色 */
-    color: #ffffff;            /* テキストは純白 */
-    font-weight: bold;         /* 太字 */
-    font-family: 'Poppins'; /* 推奨フォント */
-    padding: 5px 10px;        /* 適度な内側の余白 */
-    border-radius: 5px;        /* 角を丸くする */
-    text-decoration: none;     /* リンク下線を除去 */
+    background-color: #ffa94d;  /* ブランドカラーを背景に */
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    padding: 8px 15px;         /* 内側の余白をやや大きく */
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;      /* ロゴ画像とテキストを横並びに */
+    align-items: center;
 }
-
+  
+/* ホバー時に若干の拡大・影効果でインタラクションを演出 */
 .custom-brand:hover {
-    color: #ffffff;            /* テキストは純白 */
+    color: #ffffff;  /* テキスト色はそのまま */
+}
+  
+/* ブランドのテキスト部分をさらに大きく強調 */
+.brand-text {
+    font-size: 1.4rem;  /* フォントサイズを大きく */
 }
 
 .custom-navbar {
