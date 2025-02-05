@@ -1,27 +1,40 @@
+.section-header {
+    margin-top: 3rem;      /* 上部余白（必要に応じて調整） */
+    margin-bottom: 1rem;   /* 下部余白 */
+}
+
 .product-card {
     text-decoration: none;
+    border: none;
+    border-radius: 10px;           /* 角丸にして柔らかい印象に */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* 画像を少し大きく表示（以前は150pxだったのを180pxに変更） */
 .product-card img {
     max-height: 180px;
     object-fit: contain;
-    transition-property: opacity;
-    transition-duration: 0.5s;
+    transition-property: opacity 0.5s ease;
 }
 
 .product-card img:hover {
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 /* カルーセルのコントロールはそのまま */
 .carousel-control-next {
     width: 0%;
-    right: 5%;
+    right: 4%;
 }
 .carousel-control-prev {
     width: 0%;
-    left: 5%;
+    left: 4%;
 }
 
 .carousel-control-prev-icon,
@@ -40,11 +53,13 @@
 /* 難易度Lvを目立たせる */
 .difficulty-level {
     font-size: 1.0em;       /* フォントサイズを大きく */
+    font-weight: bold;
+    color: #333;
 }
 
 /* レビュー数は難易度の横に、控えめに表示 */
 .review-count {
-    font-size: 1.0em;       /* 少し小さめ */
+    font-size: 0.9em;       /* 少し小さめ */
     color: #6c757d;         /* グレー系の控えめな色 */
     align-self: flex-end;   /* 垂直位置の調整（必要に応じて） */
 }
@@ -65,7 +80,7 @@
 /* 本のタイトルは目立たなくする */
 .book-title {
     font-size: 1.0em;       /* 小さめの文字サイズ */
-    color: #6c757d;         /* 落ち着いた色 */
+    color: #333;         /* 落ち着いた色 */
 }
 
 .book-title span:hover {

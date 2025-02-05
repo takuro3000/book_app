@@ -2,10 +2,7 @@
     max-width: 100%;
     height: auto;
 }
-.comment-section {
-    border-bottom: 1px solid #e0e0e0;
-    margin-bottom: 10px;
-}
+
 .side-section {
     background-color: #f8f9fa;
     padding: 15px;
@@ -37,14 +34,6 @@
 .show-difficulty .progress-bar {
     background: linear-gradient(to right, #ffa94d, #ff6b6b);
     border-radius: 10px;
-}
-
-.show-book-title {
-    color: #6c757d;         /* 落ち着いた色 */
-}
-
-.show-book-title span:hover {
-    color: #ffa94d;
 }
 
 .like-link {

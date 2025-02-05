@@ -2,7 +2,7 @@
   <div class="carousel-inner">
     <% items.each_slice(slice_size).with_index do |item_group, index| %>
       <div class="carousel-item <%= 'active' if index == 0 %>">
-        <div class="row text-center">
+        <div class="row g-3 text-center">
           <% item_group.each do |item| %>
             <%= render partial: 'pages/book_card', locals: { book: item } %>
           <% end %>

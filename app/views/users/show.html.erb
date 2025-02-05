@@ -36,12 +36,12 @@
             <% end %>
         </aside>
         <section class="col-md-9">
-            <h3 class= "mb-3 mt-3">レビューした本一覧</h3>
+            <h4 class= "mb-3 mt-3">レビューした本一覧</h4>
             <div class="row">
                 <% @books.each do |book| %>
                     <div class="col-md-3">
                         <%= link_to book_path(book) do %>
-                            <div class="card text-center mb-4">
+                            <div class="card text-center mb-4 mypage-card">
                                 <%= image_tag book.image, class: "product-img" %>
                                 <div class="card-body">
                                     <!-- 難易度表示とレビュー数を同じ行に配置 -->

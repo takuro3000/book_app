@@ -14,22 +14,45 @@
  *= require_tree .
  */
 
- .custom-brand {
-    background-color: #ffa94d; /* オレンジイエローの背景色 */
-    color: #ffffff;            /* テキストは純白 */
-    font-weight: bold;         /* 太字 */
-    font-family: 'Poppins'; /* 推奨フォント */
-    padding: 5px 10px;        /* 適度な内側の余白 */
-    border-radius: 5px;        /* 角を丸くする */
-    text-decoration: none;     /* リンク下線を除去 */
+body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2c3e50; /* やや濃いグレー（またはダークブルー）で統一感を */
+    margin: 0;
+    padding: 0;
 }
 
+h4 {
+    font-size: 1.5rem;                  /* 必要に応じてサイズ調整 */
+    font-weight: 700;
+    color: #2c3e50;                     /* 基本の文字色と合わせる */
+    letter-spacing: 0.5px;              /* 少し文字間を広げて読みやすく */
+}
+
+.custom-brand {
+    background-color: #ffa94d;  /* ブランドカラーを背景に */
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    padding: 8px 15px;         /* 内側の余白をやや大きく */
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;      /* ロゴ画像とテキストを横並びに */
+    align-items: center;
+}
+  
+/* ホバー時に若干の拡大・影効果でインタラクションを演出 */
 .custom-brand:hover {
-    color: #ffffff;            /* テキストは純白 */
+    color: #ffffff;  /* テキスト色はそのまま */
+}
+  
+/* ブランドのテキスト部分をさらに大きく強調 */
+.brand-text {
+    font-size: 1.4rem;  /* フォントサイズを大きく */
 }
 
 .custom-navbar {
-    background-color: transparent;  /* 背景色は無し */
+    background-color: #fff;  /* 背景色は無し */
     border-bottom: 1px solid #ccc;   /* 下線として1pxのボーダーを追加（色は例としてグレー） */
 }
 
