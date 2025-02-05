@@ -24,7 +24,7 @@
   <div class="col-md-2">
     <div class="form-floating">
       <%= f.number_field :avg_difficulty_gteq, 
-          step: 0.1,
+          step: 1.0,
           min: 0.0,
           max: 5.0, 
           class: "form-control", 
@@ -37,7 +37,7 @@
   <div class="col-md-2">
     <div class="form-floating">
       <%= f.number_field :avg_difficulty_lteq, 
-          step: 0.1,
+          step: 1.0,
           min: 0.0,
           max: 5.0, 
           class: "form-control", 
@@ -55,7 +55,7 @@
   <div class="col-12 mt-3">
     <div class="btn-group" role="group" aria-label="Sort options">
       <%= sort_link(@q, :published_day, "出版年順", { default_order: :desc }, class: "btn btn-outline-secondary btn-outline-orange") %>
-      <%= sort_link(@q, :posts_count, "投稿数順", { default_order: :desc }, class: "btn btn-outline-secondary btn-outline-orange") %>
+      <%= sort_link(@q, :posts_count, "レビュー数順", { default_order: :desc }, class: "btn btn-outline-secondary btn-outline-orange") %>
     </div>
   </div>
 <% end %>

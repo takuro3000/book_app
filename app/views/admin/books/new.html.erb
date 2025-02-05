@@ -1,60 +1,84 @@
-<h1>New Book</h1>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-header">
+          <h1 class="h4 mb-0">New Book</h1>
+        </div>
+        <div class="card-body">
+          <%= form_with model: @book, url: admin_books_path, local: true do |form| %>
+            <!-- タイトルと検索ボタン -->
+            <div class="mb-3">
+              <%= form.label :title, class: 'form-label' %>
+              <div class="input-group">
+                <%= form.text_field :title, id: 'book_title', class: 'form-control' %>
+                <button type="button" id="search_button" class="btn btn-outline-secondary">検索</button>
+              </div>
+            </div>
 
-<%= form_with model: @book, url: admin_books_path do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title, id: 'book_title' %>
-    <%= button_tag "検索", type: 'button', id: 'search_button' %>  <!-- タイプをbuttonに -->
-  </div>
+            <!-- 著者 -->
+            <div class="mb-3">
+              <%= form.label :author, class: 'form-label' %>
+              <%= form.text_field :author, id: 'book_author', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :author %><br>
-    <%= form.text_field :author, id: 'book_author' %>
-  </div>
+            <!-- 説明 -->
+            <div class="mb-3">
+              <%= form.label :description, class: 'form-label' %>
+              <%= form.text_area :description, id: 'book_description', class: 'form-control', rows: 3 %>
+            </div>
 
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description, id: 'book_description' %>
-  </div>
+            <!-- 出版日 -->
+            <div class="mb-3">
+              <%= form.label :published_day, class: 'form-label' %>
+              <%= form.date_field :published_day, id: 'book_published_day', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :published_day %><br>
-    <%= form.date_field :published_day, id: 'book_published_day' %>
-  </div>
+            <!-- 巻数 -->
+            <div class="mb-3">
+              <%= form.label :volume, class: 'form-label' %>
+              <%= form.number_field :volume, id: 'book_volume', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :volume %><br>
-    <%= form.number_field :volume, id: 'book_volume' %>
-  </div>
+            <!-- 言語 -->
+            <div class="mb-3">
+              <%= form.label :language, class: 'form-label' %>
+              <%= form.text_field :language, id: 'book_language', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :language %><br>
-    <%= form.text_field :language, id: 'book_language' %>
-  </div>
+            <!-- 会社 -->
+            <div class="mb-3">
+              <%= form.label :company, class: 'form-label' %>
+              <%= form.text_field :company, id: 'book_company', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :company %><br>
-    <%= form.text_field :company, id: 'book_company' %>
-  </div>
+            <!-- リンク -->
+            <div class="mb-3">
+              <%= form.label :link, class: 'form-label' %>
+              <%= form.text_field :link, id: 'book_link', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :link %><br>
-    <%= form.text_field :link, id: 'book_link' %>
-  </div>
+            <!-- カテゴリ -->
+            <div class="mb-3">
+              <%= form.label :category, class: 'form-label' %>
+              <%= form.text_field :category, id: 'book_category', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :category %><br>
-    <%= form.text_field :category, id: 'book_category' %>
-  </div>
+            <!-- 画像 -->
+            <div class="mb-3">
+              <%= form.label :image, class: 'form-label' %>
+              <%= form.file_field :image, id: 'book_image', class: 'form-control' %>
+            </div>
 
-  <div>
-    <%= form.label :image %><br>
-    <%= form.file_field :image, id: 'book_image' %>
+            <!-- 送信ボタン -->
+            <div class="d-grid">
+              <%= form.submit "投稿", class: "btn btn-orange" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <%= form.submit "投稿" %>  <!-- ここでフォームを送信 -->
-  </div>
-<% end %>
+</div>
 
 <%= javascript_include_tag 'search_book.js' %>
