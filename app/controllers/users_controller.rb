@@ -1,17 +1,15 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[show edit update]
   before_action :authenticate_user!, only: %i[edit update]
   before_action :authorize_user!, only: %i[edit update]
   def show
-    @user = User.find(params[:id])
     @books = Book.joins(:posts).where(posts: { user_id: @user.id }).distinct.page(params[:page]).per(16)
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
@@ -20,6 +18,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def authorize_user!
     @user = User.find(params[:id])
     unless @user == current_user
