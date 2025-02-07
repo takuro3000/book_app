@@ -28,6 +28,25 @@ TechBook Finderは「自分に合った難易度のプログラミング本と�
 
 - ログイン・ログアウト機能
 
+## ページ一覧
+
+| **ホームページ**              | **新規登録・ログインページ** |
+|--------------------------------|-------------------------------|
+| <img src="/app/assets/images/home_page.png" alt="ホームページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/login.png" alt="新規登録・ログインページ" style="width:100%; max-width:300px;"> |
+| ・アプリの概要を説明しています  <br> ・レビューの多い本、初級者・中級者・上級者向けの本、新しい本を見れるようになっています | ・名前とパスワードで新規登録できます <br> ・新規登録後に発行されたIDと、パスワードでログインできます |
+| **本検索ページ**              | **本詳細ページ**             |
+| <img src="/app/assets/images/search.png" alt="本検索ページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/show.png" alt="本詳細ページ" style="width:100%; max-width:300px;"> |
+| ・タイトルや著者でキーワード検索できます <br> ・難易度・カテゴリーで絞り込んで検索できます <br> ・投稿数の多い順、出版の新しい順に並び変えることができます | ・本の難易度、概要について表示しています <br> ・本に対するレビューが表示しています <br> ・レビューに対しいいねが押せます |
+| **レビュー投稿ページ**  | **マイページ**               |
+| <img src="/app/assets/images/post.png" alt="レビュー投稿・編集ページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/mypage.png" alt="マイページ" style="width:100%; max-width:300px;"> |
+| ・ログインしたユーザーは難易度と感想をできます       | ・紹介文や自分のレベルが確認できます <br> ・自分がレビューした本の一覧を確認できます |
+| **プロフィール編集ページ**  | **Aboutページ**              |
+| <img src="/app/assets/images/profile.png" alt="プロフィール編集ページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/about.png" alt="Aboutページ" style="width:100%; max-width:300px;"> |
+| ・ユーザー名、紹介文、アイコン、自分のレベルなどを編集することができます | ・初めて訪問されたユーザーでもわかるように、アプリのコンセプトや使い方を記載しています |
+| **管理者　本投稿ページ**        |                               |
+| <img src="/app/assets/images/new_book.png" alt="Admin本投稿ページ" style="width:100%; max-width:300px;"> |                               |
+| ・管理者のみ本を投稿することができます <br> ・Google Books APIを利用して本の情報を登録することができ、手動で入力する手間を省けます |                               |
+
 ## 使用技術
 - フロントエンド
     - Ruby on Rails 7.1.2
@@ -54,24 +73,3 @@ TechBook Finderは「自分に合った難易度のプログラミング本と�
 ## インフラ構成図
 
 ![インフラ構成図](/app/assets/images/infra.png)
-
-## ページ一覧
-
-
-| ページ名                       | ページ名                      |
-|--------------------------------|-------------------------------|
-| **ホームページ**              | **新規登録・ログインページ** |
-| <img src="/app/assets/images/home_page.png" alt="ホームページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/login.png" alt="新規登録・ログインページ" style="width:100%; max-width:300px;"> |
-| ・アプリの概要を説明しています  <br> ・レビューの多い本、初級者・中級者・上級者向けの本、新しい本を見れるようになっています | ・nameとpasswordで新規登録します <br> ・アプリで発行されたcustom_idとpasswordでログインします |
-| **本検索ページ**              | **本詳細ページ**             |
-| <img src="/app/assets/images/search.png" alt="本検索ページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/show.png" alt="本詳細ページ" style="width:100%; max-width:300px;"> |
-| ・タイトルや著者でキーワード検索できます <br> ・難易度・カテゴリーで絞り込んで検索できます <br> ・投稿数の多い順、出版の新しい順に並び変えることができます | ・本の難易度、概要について表示しています <br> ・本に対するユーザーのレビューが表示しています <br> ・ユーザーのレビューに対しいいねが押せます |
-| **レビュー投稿・編集ページ**  | **マイページ**               |
-| <img src="/app/assets/images/post.png" alt="レビュー投稿・編集ページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/mypage.png" alt="マイページ" style="width:100%; max-width:300px;"> |
-| ・難易度と感想を投稿します       | ・紹介文や自分のレベルなどが表示でき、編集ページに飛ぶことができます <br> ・ユーザーがレビューした本の一覧が表示されています |
-| **プロフィール編集ページ**  | **Aboutページ**              |
-| <img src="/app/assets/images/profile.png" alt="プロフィール編集ページ" style="width:100%; max-width:300px;"> | <img src="/app/assets/images/about.png" alt="Aboutページ" style="width:100%; max-width:300px;"> |
-| ・ユーザー名、紹介文、アイコン、自分のレベルなどを編集することができます | ・初めて訪問されたユーザーでもわかるように、アプリのコンセプトや使い方を記載しています |
-| **管理者　本投稿ページ**        |                               |
-| <img src="/app/assets/images/new_book.png" alt="Admin本投稿ページ" style="width:100%; max-width:300px;"> |                               |
-| ・管理者のみ本を投稿することができます <br> ・Google Books APIを利用して本の情報を登録することができ、手動で入力する手間を省けます |                               |
