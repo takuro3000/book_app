@@ -94,10 +94,6 @@ TechBook Finderは「自分に合った難易度のプログラミング本と�
 
 - ログイン・ログアウト機能
 
-## 画面遷移図
-
-![画面遷移図](/app/assets/images/screen_transition.png)
-
 ## ページ一覧
 
 | **ホームページ**              | **新規登録・ログインページ** |
@@ -116,6 +112,10 @@ TechBook Finderは「自分に合った難易度のプログラミング本と�
 | **管理者　本投稿ページ**        |                               |
 | <img src="/app/assets/images/new_book.png" alt="Admin本投稿ページ" style="width:100%; max-width:300px;"> |                               |
 | ・管理者のみ本を投稿することができます <br> ・Google Books APIを利用して本の情報を登録することができ、手動で入力する手間を省けます |                               |
+
+## 画面遷移図
+
+![画面遷移図](/app/assets/images/screen_transition.png)
 
 ## 使用技術
 - フロントエンド
