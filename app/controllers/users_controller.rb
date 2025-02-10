@@ -6,8 +6,7 @@ class UsersController < ApplicationController
     @books = Book.joins(:posts).where(posts: { user_id: @user.id }).distinct.page(params[:page]).per(16)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)
