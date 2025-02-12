@@ -9,7 +9,7 @@ class User::BooksController < ApplicationController
     @book = Book.find(params[:id])
     @posts = @book.posts
     if user_signed_in?
-      @user_posts = current_user.posts.where(book_id: @book.id)
+      @user_post = current_user.posts.find_by(book_id: @book.id)
       @like = Like.new
     end
   end
