@@ -9,11 +9,11 @@
     <div class="card mb-4 search-card">
       <%= link_to book_path(book), class: "text-decoration-none text-dark" do %>
         <div class="row">
-          <!-- サムネイル（画像） -->
+          
           <div class="col-md-3 d-flex align-items-center justify-content-center p-3">
             <%= image_tag book.image, class: "img-fluid rounded-start book-img", alt: book.title %>
           </div>
-          <!-- カード本文 -->
+          
           <div class="col-md-9">
             <div class="card-body">
               <h5 class="search-card-title mb-2"><span><%= book.title %><span></h5>

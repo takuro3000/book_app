@@ -1,8 +1,7 @@
 <div class="col-12 col-md-4 col-lg-3 mb-4">
   <%= link_to book_path(book), class: "card product-card h-100" do %>
     <%= image_tag book.image, class: "card-img-top" %>
-    <div class="card-body">
-      <!-- 難易度表示とレビュー数を同じ行に配置 -->
+    <div class="card-body">      
       <div class="difficulty-rating-container d-flex align-items-center justify-content-center mb-2">
         <span class="difficulty-level">難易度Lv: <%= book.avg_difficulty %></span>
         <small class="review-count ml-2">
@@ -10,7 +9,7 @@
           <%= book.posts.count %>）
         </small>
       </div>
-      <!-- プログレスバー -->
+      
       <div class="progress mb-3">
         <div class="progress-bar"
              role="progressbar"
@@ -20,7 +19,7 @@
              aria-valuemax="100">
         </div>
       </div>
-      <!-- タイトルは控えめなスタイル -->
+      
       <p class="card-text book-title"><span><%= book.title %></span></p>
     </div>
   <% end %>
