@@ -7,10 +7,8 @@
                 <%= image_tag 'default_icon.webp', class: "profile-img" %>
             <% end %>
 
-            <!-- Name and Username -->
             <h2 class="profile-name"><%= @user.name%></h2>
 
-            <!-- Social Icons -->
             <div class="social-icons">
                 <% if @user.github_url.present?%>
                     <a href="https://www.github.com/<%= @user.github_url%>"><i class="fa-brands fa-github"></i></a>
@@ -20,11 +18,9 @@
                 <% end %>
             </div>
 
-            <!-- Contributions -->
             <div class="contributions"><%= @user.level %></div>
             <div class="contributions">レビュー数；<%= @user.posts.count %></div>
 
-            <!-- Bio -->
             <p class="bio">
                 <%= @user.self_introduction%>
             </p>
@@ -44,7 +40,6 @@
                             <div class="card text-center mb-4 mypage-card">
                                 <%= image_tag book.image, class: "product-img" %>
                                 <div class="card-body">
-                                    <!-- 難易度表示とレビュー数を同じ行に配置 -->
                                     <div class="difficulty-rating-container d-flex align-items-center justify-content-center">
                                         <span class="difficulty-level">難易度Lv: <%= book.avg_difficulty %></span>
                                         <small class="review-count ml-2">
@@ -52,7 +47,7 @@
                                         <%= book.posts.count %>）
                                         </small>
                                     </div>
-                                    <!-- プログレスバー -->
+                                    
                                     <div class="progress mb-3">
                                         <div class="progress-bar"
                                             role="progressbar"
@@ -62,7 +57,7 @@
                                             aria-valuemax="100">
                                         </div>
                                     </div>
-                                    <!-- タイトルは控えめなスタイル -->
+                                    
                                     <p class="card-text product-title book-title"><span><%= book.title %></span></p>
                                 </div>
                             </div>

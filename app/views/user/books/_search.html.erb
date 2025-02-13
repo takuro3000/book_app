@@ -1,5 +1,5 @@
 <%= search_form_for @q, url: books_path, method: :get, class: "row g-3 align-items-center" do |f| %>
-  <!-- キーワード検索 -->
+  
   <div class="col-md-4">
     <div class="form-floating">
       <%= f.search_field :title_or_author_cont, 
@@ -9,7 +9,6 @@
     </div>
   </div>
 
-  <!-- カテゴリー -->
   <div class="col-md-3">
     <div class="form-floating">
       <%= f.select :category_eq, 
@@ -20,7 +19,6 @@
     </div>
   </div>
 
-  <!-- 難易度(以上) -->
   <div class="col-md-2">
     <div class="form-floating">
       <%= f.number_field :avg_difficulty_gteq, 
@@ -33,7 +31,6 @@
     </div>
   </div>
 
-  <!-- 難易度(以下) -->
   <div class="col-md-2">
     <div class="form-floating">
       <%= f.number_field :avg_difficulty_lteq, 
@@ -46,12 +43,10 @@
     </div>
   </div>
 
-  <!-- 検索ボタン -->
   <div class="col-md-1 d-grid">
     <%= f.submit '検索', class: "btn btn-orange" %>
   </div>
 
-  <!-- ソートリンクをボタンとして表示 -->
   <div class="col-12 mt-3">
     <div class="btn-group" role="group" aria-label="Sort options">
       <%= sort_link(@q, :published_day, "出版年順", { default_order: :desc }, class: "btn btn-outline-secondary btn-outline-orange") %>
