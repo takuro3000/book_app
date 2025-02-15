@@ -21,24 +21,20 @@
 
   <div class="col-md-2">
     <div class="form-floating">
-      <%= f.number_field :avg_difficulty_gteq, 
-          step: 1.0,
-          min: 0.0,
-          max: 5.0, 
-          class: "form-control", 
-          placeholder: "難易度(以上)" %>
+      <%= f.select :avg_difficulty_gteq, 
+          options_for_select((0..10).map { |n| [sprintf('%.1f', n * 0.5), n * 0.5] }, @q.avg_difficulty_gteq),
+          { include_blank: '選択してください' }, 
+          class: "form-select" %>
       <label for="q_avg_difficulty_gteq">難易度(以上)</label>
     </div>
   </div>
 
   <div class="col-md-2">
     <div class="form-floating">
-      <%= f.number_field :avg_difficulty_lteq, 
-          step: 1.0,
-          min: 0.0,
-          max: 5.0, 
-          class: "form-control", 
-          placeholder: "難易度(以下)" %>
+      <%= f.select :avg_difficulty_lteq, 
+          options_for_select((0..10).map { |n| [sprintf('%.1f', n * 0.5), n * 0.5] }, @q.avg_difficulty_lteq),
+          { include_blank: '選択してください' }, 
+          class: "form-select" %>
       <label for="q_avg_difficulty_lteq">難易度(以下)</label>
     </div>
   </div>
