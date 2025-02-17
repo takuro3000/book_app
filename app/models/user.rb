@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :rememberable
+  devise :database_authenticatable, :registerable, :rememberable
   devise authentication_keys: [:custom_id]
   before_create :generate_custom_id
   has_many :posts, dependent: :destroy
@@ -11,6 +10,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 100 }
   validates :self_introduction, length: { maximum: 200 }
   validates :level, inclusion: { in: ["初級エンジニア", "中級エンジニア", "上級エンジニア"] }, allow_blank: true
+
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
   end
