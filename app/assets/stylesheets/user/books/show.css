@@ -22,6 +22,16 @@
     opacity: 0.5;
 }
 
+.show-icon-active {
+    color: #ffa94d;
+    font-size: 1.8rem;
+}
+
+.show-icon-inactive {
+    color: #e9ecef;
+    font-size: 1.8rem;
+}
+
 .show-difficulty .progress {
     width: 100%;
     height: 20px;

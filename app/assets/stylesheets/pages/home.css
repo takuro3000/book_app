@@ -64,6 +64,31 @@
     align-self: flex-end;   /* 垂直位置の調整（必要に応じて） */
 }
 
+.icon-active {
+    color: #ffa94d;
+    font-size: 1.2rem;
+}
+
+.icon-inactive {
+    color: #e9ecef;
+    font-size: 1.2rem;
+}
+
+/* 小数部分のアイコン表示用ラッパー */
+.icon-partial-wrapper {
+    position: relative;
+    display: inline-block;
+}
+  
+/* 前面の部分塗りアイコンの設定 */
+.icon-partial-wrapper .partial-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 /* プログレスバーのスタイル */
 .progress {
     width: 100%;
