@@ -89,19 +89,6 @@
     white-space: nowrap;
 }
 
-/* プログレスバーのスタイル */
-.progress {
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background-color: #e9ecef;
-    margin-top: 5px;
-}
-.progress-bar {
-    background: linear-gradient(to right, #ffa94d, #ff6b6b);
-    border-radius: 5px;
-}
-
 /* 本のタイトルは目立たなくする */
 .book-title {
     font-size: 1.0em;       /* 小さめの文字サイズ */
