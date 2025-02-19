@@ -22,8 +22,25 @@
               </p>
               <div class="difficulty_rating mb-3">
                 <p class="difficulty-level mb-1">難易度Lv: <%= book.avg_difficulty %></p>
-                <div class="progress mb-2" style="width: 50%;">
-                  <div class="progress-bar" role="progressbar" style="width: <%= book.post_difficulty_percentage %>%;" aria-valuenow="<%= book.post_difficulty_percentage %>" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="difficulty-icons mb-2">
+                  <% 1.upto(5) do |i| %>
+                    <% if book.avg_difficulty >= i %>
+                      <!-- 完全に塗られたアイコン -->
+                      <i class="bi bi-book-fill icon-active"></i>
+                    <% elsif book.avg_difficulty < i - 1 %>
+                      <!-- 全く塗られていないアイコン -->
+                      <i class="bi bi-book-fill icon-inactive"></i>
+                    <% else %>
+                      <!-- 小数部分がある場合 -->
+                      <% fraction = book.avg_difficulty - (i - 1) %>
+                      <span class="icon-partial-wrapper">
+                        <!-- 背景：塗られていない状態 -->
+                        <i class="bi bi-book-fill icon-inactive"></i>
+                        <!-- 前面：塗られた状態。fraction分だけ表示 -->
+                        <i class="bi bi-book-fill icon-active partial-fill" style="width: <%= (fraction * 100).round %>%"></i>
+                      </span>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
               <p class="card-text text-muted mb-1">レビュー数：<%= book.posts.count %></p>
