@@ -32,22 +32,8 @@
     font-size: 1.8rem;
 }
 
-.show-difficulty .progress {
-    width: 100%;
-    height: 20px;
-    border-radius: 10px;
-    background-color: #e9ecef;
-    margin-top: 5px;
-}
-
-
-.show-difficulty .progress-bar {
-    background: linear-gradient(to right, #ffa94d, #ff6b6b);
-    border-radius: 10px;
-}
-
 .like-link {
-    color: #6c757d;         /* 落ち着いた色 */
+    color: #6c757d;
 }
 
 .like-link .fa-solid {

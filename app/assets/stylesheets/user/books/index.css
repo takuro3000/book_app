@@ -1,5 +1,5 @@
 .btn-outline-orange:hover {
-    background-color: #ffa94d;  /* お好みのオレンジ色の16進数カラーコード */
+    background-color: #ffa94d;  
     border-color: #ffa94d;
     color: #fff;
 }
@@ -18,8 +18,8 @@ a.row {
 }
 
 .search-card:hover {
-    transform: translateY(-5px);  /* カードが少し上に浮き上がる */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  /* 影を強調する */
+    transform: translateY(-5px);  
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  
 }
 
 .search-card-title {
@@ -53,7 +53,7 @@ a.row {
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #ffa94d;  /* 少し濃いオレンジ */
+    background-color: #ffa94d;  
     border-color: #ffa94d;
     color: #fff;
 }

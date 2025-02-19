@@ -1,12 +1,12 @@
 .section-header {
-    margin-top: 3rem;      /* 上部余白（必要に応じて調整） */
-    margin-bottom: 1rem;   /* 下部余白 */
+    margin-top: 3rem;      
+    margin-bottom: 1rem;   
 }
 
 .product-card {
     text-decoration: none;
     border: none;
-    border-radius: 10px;           /* 角丸にして柔らかい印象に */
+    border-radius: 10px;           
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -16,7 +16,6 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* 画像を少し大きく表示（以前は150pxだったのを180pxに変更） */
 .product-card img {
     max-height: 180px;
     object-fit: contain;
@@ -27,7 +26,6 @@
     opacity: 0.8;
 }
 
-/* カルーセルのコントロールはそのまま */
 .carousel-control-next {
     width: 0%;
     right: 4%;
@@ -44,24 +42,21 @@
     border-radius: 50%;
 }
 
-/* 難易度・レビュー数のコンテナ */
 .difficulty-rating-container {
     text-align: center;
     width: 100%;
 }
 
-/* 難易度Lvを目立たせる */
 .difficulty-level {
-    font-size: 1.0em;       /* フォントサイズを大きく */
+    font-size: 1.0em;       
     font-weight: bold;
     color: #333;
 }
 
-/* レビュー数は難易度の横に、控えめに表示 */
 .review-count {
-    font-size: 0.9em;       /* 少し小さめ */
-    color: #6c757d;         /* グレー系の控えめな色 */
-    align-self: flex-end;   /* 垂直位置の調整（必要に応じて） */
+    font-size: 0.9em;       
+    color: #6c757d;         
+    align-self: flex-end;   
 }
 
 .icon-active {
@@ -74,13 +69,11 @@
     font-size: 1.2rem;
 }
 
-/* 小数部分のアイコン表示用ラッパー */
 .icon-partial-wrapper {
     position: relative;
     display: inline-block;
 }
-  
-/* 前面の部分塗りアイコンの設定 */
+
 .icon-partial-wrapper .partial-fill {
     position: absolute;
     top: 0;
@@ -89,30 +82,15 @@
     white-space: nowrap;
 }
 
-/* プログレスバーのスタイル */
-.progress {
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background-color: #e9ecef;
-    margin-top: 5px;
-}
-.progress-bar {
-    background: linear-gradient(to right, #ffa94d, #ff6b6b);
-    border-radius: 5px;
-}
-
-/* 本のタイトルは目立たなくする */
 .book-title {
-    font-size: 1.0em;       /* 小さめの文字サイズ */
-    color: #333;         /* 落ち着いた色 */
+    font-size: 1.0em;       
+    color: #333;         
 }
 
 .book-title span:hover {
     color: #ffa94d;
 }
 
-/* 既存のカルーセル内のカードテキストの設定（必要ならそのまま） */
 .carousel-inner .card-text {
     overflow: hidden;
     text-overflow: ellipsis;
