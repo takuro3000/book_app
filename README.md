@@ -1,8 +1,6 @@
 # TechBook Finder
 
-URL:~~https://techbookfinder.com/~~
-
-→ 現在、利用することはできません。
+URL:https://techbookfinder.com/
 
 ![トップ画像](/app/assets/images/home_page.png)
 
