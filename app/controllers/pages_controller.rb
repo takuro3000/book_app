@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   def home
-    @books_post = fetch_books_by_difficulty(0, 5)
+    @books_popular = fetch_books_by_difficulty(0, 5)
+    @books_beginner = fetch_books_by_difficulty(1, 3)
+    @books_intermediate = fetch_books_by_difficulty(2, 4)
+    @books_advanced = fetch_books_by_difficulty(3, 5)
     @books_new = Book.latest.top_ranked
-    @books_dif_low = fetch_books_by_difficulty(1, 3)
-    @books_dif_mid = fetch_books_by_difficulty(2, 4)
-    @books_dif_high = fetch_books_by_difficulty(3, 5)
   end
 
   def about

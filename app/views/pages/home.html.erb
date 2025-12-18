@@ -8,7 +8,7 @@
   <div class="d-block d-md-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'postCarouselSmartphone', 
-          items: @books_post, 
+          items: @books_popular, 
           slice_size: 1 
         } %>
   </div>
@@ -17,7 +17,7 @@
   <div class="d-none d-md-block d-lg-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'postCarouselIpad', 
-          items: @books_post, 
+          items: @books_popular, 
           slice_size: 3 
         } %>
   </div>
@@ -26,7 +26,7 @@
   <div class="d-none d-lg-block mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'postCarouselDesktop', 
-          items: @books_post, 
+          items: @books_popular, 
           slice_size: 4 
         } %>
   </div>
@@ -37,21 +37,21 @@
   <div class="d-block d-md-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'lowCarouselSmartphone', 
-          items: @books_dif_low, 
+          items: @books_beginner, 
           slice_size: 1 
         } %>
   </div>
   <div class="d-none d-md-block d-lg-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'lowCarouselIpad', 
-          items: @books_dif_low, 
+          items: @books_beginner, 
           slice_size: 3 
         } %>
   </div>
   <div class="d-none d-lg-block mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'lowCarouselDesktop', 
-          items: @books_dif_low, 
+          items: @books_beginner, 
           slice_size: 4 
         } %>
   </div>
@@ -62,21 +62,21 @@
   <div class="d-block d-md-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'midCarouselSmartphone', 
-          items: @books_dif_mid, 
+          items: @books_intermediate, 
           slice_size: 1 
         } %>
   </div>
   <div class="d-none d-md-block d-lg-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'midCarouselIpad', 
-          items: @books_dif_mid, 
+          items: @books_intermediate, 
           slice_size: 3 
         } %>
   </div>
   <div class="d-none d-lg-block mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'midCarouselDesktop', 
-          items: @books_dif_mid, 
+          items: @books_intermediate, 
           slice_size: 4 
         } %>
   </div>
@@ -87,21 +87,21 @@
   <div class="d-block d-md-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'highCarouselSmartphone', 
-          items: @books_dif_high, 
+          items: @books_advanced, 
           slice_size: 1 
         } %>
   </div>
   <div class="d-none d-md-block d-lg-none mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'highCarouselIpad', 
-          items: @books_dif_high, 
+          items: @books_advanced, 
           slice_size: 3 
         } %>
   </div>
   <div class="d-none d-lg-block mb-4">
     <%= render partial: 'pages/carousel', locals: { 
           carousel_id: 'highCarouselDesktop', 
-          items: @books_dif_high, 
+          items: @books_advanced, 
           slice_size: 4 
         } %>
   </div>
