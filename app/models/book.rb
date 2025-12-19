@@ -4,7 +4,7 @@ class Book < ApplicationRecord
 
   validate :image_presence
 
-  scope :latest, -> { order(published_day: :desc) }
+  scope :latest, -> { order(published_day: :desc).limit(12) }
   scope :with_average_difficulty_between, ->(min, max) {
     joins(:posts)
       .select('books.*, AVG(posts.difficulty) AS average_difficulty, COUNT(posts.id) AS posts_count')

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     @beginner_books = fetch_books_by_difficulty(1, 3)
     @intermediate_books = fetch_books_by_difficulty(2, 4)
     @advanced_books = fetch_books_by_difficulty(3, 5)
-    @latest_books = Book.latest.top_ranked
+    @latest_books = Book.latest
   end
 
   def about
