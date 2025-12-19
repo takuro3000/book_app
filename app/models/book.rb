@@ -5,26 +5,23 @@ class Book < ApplicationRecord
   validate :image_presence
 
   scope :latest, -> { order(published_day: :desc).limit(12) }
-  scope :with_average_difficulty_between, ->(min, max) {
+
+  scope :most_reviewed, ->(limit = 12) {
+    joins(:posts)
+      .select('books.*, COUNT(posts.id) AS posts_count')
+      .group('books.id')
+      .order(Arel.sql('COUNT(posts.id) DESC'))
+      .limit(limit)
+  }
+
+  scope :by_difficulty_range, ->(min, max, limit = 12) {
     joins(:posts)
       .select('books.*, AVG(posts.difficulty) AS average_difficulty, COUNT(posts.id) AS posts_count')
       .group('books.id')
       .having('AVG(posts.difficulty) BETWEEN ? AND ?', min, max)
+      .order(Arel.sql('COUNT(posts.id) DESC'))
+      .limit(limit)
   }
-
-  scope :ordered_by_posts_count, -> {
-    order('posts_count DESC')
-  }
-
-  scope :top_ranked, ->(limit = 12) {
-    limit(limit)
-  }
-
-  def self.for_home_by_difficulty(min, max)
-    with_average_difficulty_between(min, max)
-      .ordered_by_posts_count
-      .top_ranked
-  end
 
   def avg_difficulty
     unless self.posts.empty?
