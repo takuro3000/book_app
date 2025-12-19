@@ -20,6 +20,12 @@ class Book < ApplicationRecord
     limit(limit)
   }
 
+  def self.for_home_by_difficulty(min, max)
+    with_average_difficulty_between(min, max)
+      .ordered_by_posts_count
+      .top_ranked
+  end
+
   def avg_difficulty
     unless self.posts.empty?
       posts.average(:difficulty).round(1).to_f
