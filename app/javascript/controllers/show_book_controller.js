@@ -3,9 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    // ここに書いた処理は、コントローラがアタッチされたタイミングで毎回実行される
-    console.log("show_book_controller connected!!")
-
     // ユーザー以外の投稿の高さを確認
     const posts = document.querySelectorAll('.post-content');
     posts.forEach(post => {
