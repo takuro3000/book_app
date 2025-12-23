@@ -1,4 +1,3 @@
-// app/javascript/controllers/read_more_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
@@ -14,14 +13,14 @@ export default class extends Controller {
     }
   }
 
-  expandContent() {
+  expand() {
     this.contentTarget.style.maxHeight = "none"
     this.contentTarget.style.overflow = "visible"
     this.expandButtonTarget.style.display = "none"
     this.collapseButtonTarget.style.display = "inline"
   }
 
-  collapseContent() {
+  collapse() {
     this.contentTarget.style.maxHeight = this.maxHeightValue + "px"
     this.contentTarget.style.overflow = "hidden"
     this.expandButtonTarget.style.display = "inline"
