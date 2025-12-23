@@ -88,12 +88,10 @@
                                 </div>
                             </div>
                             <p class="post-content card-text mb-2" data-read-more-target="content"><%= post.content %></p>
-                            <button class="btn btn-link p-0" 
-                            style="display: none;" 
+                            <button class="btn btn-link p-0 read-more-button"
                             data-read-more-target="expandButton"
                             data-action="click->read-more#expand">続きを読む</button>
-                            <button class="btn btn-link p-0" 
-                            style="display: none;" 
+                            <button class="btn btn-link p-0 read-more-button"
                             data-read-more-target="collapseButton"
                             data-action="click->read-more#collapse">閉じる</button>
                             <% if user_signed_in? %>

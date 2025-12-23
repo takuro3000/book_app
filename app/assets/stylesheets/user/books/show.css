@@ -39,3 +39,16 @@
 .like-link .fa-solid {
     color: #ffa94d;
 }
+
+.post-content.is-collapsed {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.read-more-button {
+    display: none;
+}
+
+.read-more-button.is-displayed {
+    display: inline;
+}
