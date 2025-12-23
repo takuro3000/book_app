@@ -1,11 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
+const HEIGHT_OF_FOUR_LINES = 100
+
 export default class extends Controller {
   static targets = ["content", "expandButton", "collapseButton"]
-  static values = { maxHeight: { type: Number, default: 100 } }
 
   connect() {
-    if (this.contentTarget.scrollHeight > this.maxHeightValue) {
+    if (this.contentTarget.scrollHeight > HEIGHT_OF_FOUR_LINES) {
       this.collapseContent()
     }
   }
