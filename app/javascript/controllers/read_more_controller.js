@@ -1,4 +1,4 @@
-// app/javascript/controllers/show_book_controller.js
+// app/javascript/controllers/read_more_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
@@ -28,3 +28,4 @@ export default class extends Controller {
     this.collapseButtonTarget.style.display = "none"
   }
 }
+
