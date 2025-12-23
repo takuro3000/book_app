@@ -1,27 +1,24 @@
 class Book < ApplicationRecord
+  HOME_PAGE_DISPLAY_LIMIT = 12
+
   has_one_attached :image
   has_many :posts, dependent: :destroy
 
   validate :image_presence
 
-  scope :latest, -> { order(published_day: :desc).limit(12) }
-
-  scope :most_reviewed, ->(limit = 12) {
+  scope :with_average_difficulty_between, ->(min, max) {
     joins(:posts)
-      .select('books.*, COUNT(posts.id) AS posts_count')
-      .group('books.id')
-      .order(Arel.sql('COUNT(posts.id) DESC'))
-      .limit(limit)
+      .select("books.*, COUNT(posts.id) AS posts_count, AVG(posts.difficulty) AS average_difficulty")
+      .group("books.id")
+      .having("AVG(posts.difficulty) BETWEEN ? AND ?", min, max)
   }
 
-  scope :by_difficulty_range, ->(min, max, limit = 12) {
-    joins(:posts)
-      .select('books.*, AVG(posts.difficulty) AS average_difficulty, COUNT(posts.id) AS posts_count')
-      .group('books.id')
-      .having('AVG(posts.difficulty) BETWEEN ? AND ?', min, max)
-      .order(Arel.sql('COUNT(posts.id) DESC'))
-      .limit(limit)
-  }
+  # NOTE: with_average_difficulty_between の後でのみ使用可能（posts_count は仮想カラムであるため）
+  scope :ordered_by_posts_count, -> { order(posts_count: :desc) }
+
+  scope :limit_for_home, -> { limit(HOME_PAGE_DISPLAY_LIMIT) }
+
+  scope :latest, -> { order(published_day: :desc) }
 
   def avg_difficulty
     unless self.posts.empty?

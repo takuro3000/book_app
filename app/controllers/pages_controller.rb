@@ -1,10 +1,18 @@
 class PagesController < ApplicationController
   def home
-    @most_reviewed_books = Book.most_reviewed
-    @beginner_books = Book.by_difficulty_range(1, 3)
-    @intermediate_books = Book.by_difficulty_range(2, 4)
-    @advanced_books = Book.by_difficulty_range(3, 5)
-    @latest_books = Book.latest
+    @most_reviewed_books = Book.with_average_difficulty_between(0, 5)
+      .ordered_by_posts_count
+      .limit_for_home
+    @beginner_books = Book.with_average_difficulty_between(1, 3)
+      .ordered_by_posts_count
+      .limit_for_home
+    @intermediate_books = Book.with_average_difficulty_between(2, 4)
+      .ordered_by_posts_count
+      .limit_for_home
+    @advanced_books = Book.with_average_difficulty_between(3, 5)
+      .ordered_by_posts_count
+      .limit_for_home
+    @latest_books = Book.latest.limit_for_home
   end
 
   def about
