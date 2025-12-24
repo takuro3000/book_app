@@ -37,9 +37,12 @@ class Admin::BooksController < ApplicationController
   end
 
   def search
-    result = SearchGoogleBooksService.new(params[:title]).call
-    @book = result[:book]
-    @error_message = result[:error_message]
+    @book = SearchGoogleBooksService.call(params[:title])
+
+    if @book.nil?
+      @book = Book.new
+      @error_message = "本が見つかりませんでした。"
+    end
 
     respond_to do |format|
       format.turbo_stream
