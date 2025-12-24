@@ -19,55 +19,7 @@
 
           <%# 書籍登録用フォーム %>
           <%= form_with model: @book, url: admin_books_path, local: true do |form| %>
-
-            <div class="mb-3">
-              <%= form.label :title, class: 'form-label' %>
-              <div id="book_title_field">
-                <%= form.text_field :title, id: 'book_title', class: 'form-control' %>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :author, class: 'form-label' %>
-              <div id="book_author_field">
-                <%= form.text_field :author, id: 'book_author', class: 'form-control' %>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :description, class: 'form-label' %>
-              <div id="book_description_field">
-                <%= form.text_area :description, id: 'book_description', class: 'form-control', rows: 3 %>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :published_day, class: 'form-label' %>
-              <div id="book_published_day_field">
-                <%= form.date_field :published_day, id: 'book_published_day', class: 'form-control' %>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :volume, class: 'form-label' %>
-              <div id="book_volume_field">
-                <%= form.number_field :volume, id: 'book_volume', class: 'form-control' %>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :language, class: 'form-label' %>
-              <div id="book_language_field">
-                <%= form.text_field :language, id: 'book_language', class: 'form-control' %>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <%= form.label :company, class: 'form-label' %>
-              <div id="book_company_field">
-                <%= form.text_field :company, id: 'book_company', class: 'form-control' %>
-              </div>
-            </div>
+            <%= render "book_form_fields", form: form %>
 
             <div class="mb-3">
               <%= form.label :link, class: 'form-label' %>

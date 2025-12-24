@@ -40,7 +40,22 @@ class Admin::BooksController < ApplicationController
   def search
     # Google Books APIでタイトルをもとに検索
     title = params[:title]
-    @book_info = fetch_book_info(title)
+    book_info = fetch_book_info(title)
+
+    if book_info[:error]
+      @book = Book.new
+      @error_message = "本が見つかりませんでした。"
+    else
+      @book = Book.new(
+        title: book_info[:title],
+        author: book_info[:authors],
+        description: book_info[:description],
+        published_day: book_info[:published_date],
+        volume: book_info[:volume],
+        language: book_info[:language] == 'ja' ? '日本語' : book_info[:language],
+        company: book_info[:company]
+      )
+    end
 
     respond_to do |format|
       format.turbo_stream
