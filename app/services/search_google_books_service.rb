@@ -1,6 +1,6 @@
 require 'net/http'
 
-class GoogleBooksService
+class SearchGoogleBooksService
   def initialize(title)
     @title = title
   end
@@ -58,3 +58,4 @@ class GoogleBooksService
     )
   end
 end
+

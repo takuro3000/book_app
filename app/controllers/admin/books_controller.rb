@@ -37,7 +37,7 @@ class Admin::BooksController < ApplicationController
   end
 
   def search
-    result = GoogleBooksService.new(params[:title]).call
+    result = SearchGoogleBooksService.new(params[:title]).call
     @book = result[:book]
     @error_message = result[:error_message]
 
