@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-
 # 開発環境のみでサンプルデータを作成
 if Rails.env.development?
   puts "=== 開発環境用サンプルデータを作成します ==="
@@ -191,7 +187,6 @@ if Rails.env.development?
     book = Book.find_or_initialize_by(title: book_data[:title])
     book.assign_attributes(book_data.except(:title))
     
-    # 画像を添付（既に添付されていない場合のみ）
     unless book.image.attached?
       book.image.attach(
         io: File.open(sample_image_path),
@@ -223,14 +218,12 @@ if Rails.env.development?
 
   post_count = 0
   created_books.each_with_index do |book, book_index|
-    # 各本に対して1〜3件のランダムなレビューを作成
     num_reviews = [1, 2, 3].sample
     selected_users = created_users.sample(num_reviews)
     
     selected_users.each_with_index do |user, user_index|
       review = reviews[(book_index + user_index) % reviews.length]
       
-      # 既存の投稿がなければ作成
       unless Post.exists?(user_id: user.id, book_id: book.id)
         Post.create!(
           user: user,
