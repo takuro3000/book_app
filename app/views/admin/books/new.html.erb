@@ -6,44 +6,67 @@
           <h1 class="h4 mb-0">New Book</h1>
         </div>
         <div class="card-body">
+          <%# 検索用フォーム（Turbo Stream対応） %>
+          <%= form_with url: search_admin_books_path, method: :get, data: { turbo_stream: true }, class: "mb-3" do |search_form| %>
+            <%= search_form.label :title, "タイトルで検索", class: 'form-label' %>
+            <div class="input-group">
+              <%= search_form.text_field :title, class: 'form-control', placeholder: '書籍タイトルを入力' %>
+              <%= search_form.submit "検索", class: "btn btn-outline-secondary" %>
+            </div>
+          <% end %>
+
+          <div id="search_result" class="mb-3"></div>
+
+          <%# 書籍登録用フォーム %>
           <%= form_with model: @book, url: admin_books_path, local: true do |form| %>
 
             <div class="mb-3">
               <%= form.label :title, class: 'form-label' %>
-              <div class="input-group">
+              <div id="book_title_field">
                 <%= form.text_field :title, id: 'book_title', class: 'form-control' %>
-                <button type="button" id="search_button" class="btn btn-outline-secondary">検索</button>
               </div>
             </div>
 
             <div class="mb-3">
               <%= form.label :author, class: 'form-label' %>
-              <%= form.text_field :author, id: 'book_author', class: 'form-control' %>
+              <div id="book_author_field">
+                <%= form.text_field :author, id: 'book_author', class: 'form-control' %>
+              </div>
             </div>
 
             <div class="mb-3">
               <%= form.label :description, class: 'form-label' %>
-              <%= form.text_area :description, id: 'book_description', class: 'form-control', rows: 3 %>
+              <div id="book_description_field">
+                <%= form.text_area :description, id: 'book_description', class: 'form-control', rows: 3 %>
+              </div>
             </div>
 
             <div class="mb-3">
               <%= form.label :published_day, class: 'form-label' %>
-              <%= form.date_field :published_day, id: 'book_published_day', class: 'form-control' %>
+              <div id="book_published_day_field">
+                <%= form.date_field :published_day, id: 'book_published_day', class: 'form-control' %>
+              </div>
             </div>
 
             <div class="mb-3">
               <%= form.label :volume, class: 'form-label' %>
-              <%= form.number_field :volume, id: 'book_volume', class: 'form-control' %>
+              <div id="book_volume_field">
+                <%= form.number_field :volume, id: 'book_volume', class: 'form-control' %>
+              </div>
             </div>
 
             <div class="mb-3">
               <%= form.label :language, class: 'form-label' %>
-              <%= form.text_field :language, id: 'book_language', class: 'form-control' %>
+              <div id="book_language_field">
+                <%= form.text_field :language, id: 'book_language', class: 'form-control' %>
+              </div>
             </div>
 
             <div class="mb-3">
               <%= form.label :company, class: 'form-label' %>
-              <%= form.text_field :company, id: 'book_company', class: 'form-control' %>
+              <div id="book_company_field">
+                <%= form.text_field :company, id: 'book_company', class: 'form-control' %>
+              </div>
             </div>
 
             <div class="mb-3">
@@ -70,5 +93,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag 'search_book.js' %>

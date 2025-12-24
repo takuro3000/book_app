@@ -1,0 +1,34 @@
+<% if @book_info[:error] %>
+  <%= turbo_stream.update "search_result" do %>
+    <div class="alert alert-warning">本が見つかりませんでした。</div>
+  <% end %>
+<% else %>
+  <%= turbo_stream.update "book_title_field" do %>
+    <%= text_field_tag "book[title]", @book_info[:title], id: 'book_title', class: 'form-control' %>
+  <% end %>
+
+  <%= turbo_stream.update "book_author_field" do %>
+    <%= text_field_tag "book[author]", @book_info[:authors], id: 'book_author', class: 'form-control' %>
+  <% end %>
+
+  <%= turbo_stream.update "book_description_field" do %>
+    <%= text_area_tag "book[description]", @book_info[:description], id: 'book_description', class: 'form-control', rows: 3 %>
+  <% end %>
+
+  <%= turbo_stream.update "book_published_day_field" do %>
+    <%= date_field_tag "book[published_day]", @book_info[:published_date], id: 'book_published_day', class: 'form-control' %>
+  <% end %>
+
+  <%= turbo_stream.update "book_volume_field" do %>
+    <%= number_field_tag "book[volume]", @book_info[:volume], id: 'book_volume', class: 'form-control' %>
+  <% end %>
+
+  <%= turbo_stream.update "book_language_field" do %>
+    <%= text_field_tag "book[language]", @book_info[:language] == 'ja' ? '日本語' : @book_info[:language], id: 'book_language', class: 'form-control' %>
+  <% end %>
+
+  <%= turbo_stream.update "book_company_field" do %>
+    <%= text_field_tag "book[company]", @book_info[:company], id: 'book_company', class: 'form-control' %>
+  <% end %>
+<% end %>
+
