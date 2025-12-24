@@ -1,0 +1,27 @@
+# Dockerfile.dev
+# ※ Rubyのバージョンはリポジトリの .ruby-version に合わせてください（例: 3.2.3 など）
+FROM ruby:3.2.3-slim
+
+WORKDIR /app
+
+# Rails + sqlite3 + JS周りでよく要る依存（最小寄り）
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+      build-essential git curl \
+      libsqlite3-dev \
+      nodejs npm && \
+    rm -rf /var/lib/apt/lists/*
+
+# bundler
+COPY Gemfile Gemfile.lock ./
+RUN bundle config set --local without 'production' && bundle install
+
+COPY . .
+
+# bin/ディレクトリに実行権限を付与し、Windowsの改行コード(CRLF)をLFに変換
+RUN chmod +x bin/* && \
+    sed -i 's/\r$//' bin/*
+
+EXPOSE 3000
+CMD ["bash", "-lc", "rm -f tmp/pids/server.pid && bundle exec rails db:prepare && bundle exec rails s -b 0.0.0.0"]
+

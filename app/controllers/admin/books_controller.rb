@@ -1,5 +1,4 @@
 class Admin::BooksController < ApplicationController
-  require 'net/http'
   before_action :authenticate_admin!
   before_action :set_book, only: %i[show edit update destroy]
 
@@ -38,22 +37,15 @@ class Admin::BooksController < ApplicationController
   end
 
   def search
-    # Google Books APIでタイトルをもとに検索
-    title = params[:title]
-    book_info = fetch_book_info(title)
+    @book = SearchGoogleBooksService.call(params[:title])
 
-    if book_info[:error]
-      render json: { error: '本が見つかりませんでした。' }
-    else
-      render json: {
-        title: book_info[:title],
-        authors: book_info[:authors],
-        description: book_info[:description] || '',
-        published_date: book_info[:published_date],
-        volume: book_info[:volume],
-        language: book_info[:language],
-        company: book_info[:company]
-      }
+    if @book.nil?
+      @book = Book.new
+      @error_message = "本が見つかりませんでした。"
+    end
+
+    respond_to do |format|
+      format.turbo_stream
     end
   end
 
@@ -68,28 +60,5 @@ class Admin::BooksController < ApplicationController
       :title, :description, :image, :volume, :published_day, :language,
       :company, :link ,:author ,:category
     )
-  end
-
-  def fetch_book_info(title)
-    query = URI.encode_www_form(q: title)
-    url = URI("https://www.googleapis.com/books/v1/volumes?#{query}")
-
-    response = Net::HTTP.get(url)
-    books = JSON.parse(response)
-
-    if books['items']
-      book_info = books['items'].first['volumeInfo']
-      {
-        title: book_info['title'],
-        authors: book_info['authors']&.join(', '),
-        description: book_info['description'],
-        published_date: book_info['publishedDate'],
-        volume: book_info['pageCount'],
-        language: book_info['language'],
-        company: book_info['publisher']
-      }
-    else
-      { error: 'No book found' }
-    end
   end
 end

@@ -1,0 +1,15 @@
+<% if @error_message %>
+  <%= turbo_stream.update "search_result" do %>
+    <div class="alert alert-warning"><%= @error_message %></div>
+  <% end %>
+<% else %>
+  <%= turbo_stream.update "book_form_fields" do %>
+    <%= fields_for :book, @book do |form| %>
+      <%= render "book_form_fields", form: form %>
+    <% end %>
+  <% end %>
+
+  <%= turbo_stream.update "search_result" do %>
+    <div class="alert alert-success">書籍情報を取得しました。</div>
+  <% end %>
+<% end %>

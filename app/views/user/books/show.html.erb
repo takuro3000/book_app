@@ -1,4 +1,4 @@
-<main class="container mt-4" data-controller="show-book">
+<main class="container mt-4">
     <div class="row">
         <div class="col-md-3">
             <div class="book-info text-center">
@@ -74,7 +74,7 @@
                             </div>
                             <small class="text-muted"><%= post.created_at.strftime('%Y/%m/%d') %></small>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" data-controller="read-more">
                             <div class="mb-2">
                                 <span>難易度Lv: <%= post.difficulty%></span>
                                 <div class="difficulty-icons mb-2">
@@ -87,8 +87,13 @@
                                     <% end %>
                                 </div>
                             </div>
-                            <p class="post-content card-text mb-2" id="post_<%= post.id %>"><%= post.content %></p>
-                            <button class="btn btn-link p-0 read-more-btn" id="readMoreBtn_<%= post.id %>" style="display: none;">続きを読む</button>
+                            <p class="post-content card-text mb-2" data-read-more-target="content"><%= post.content %></p>
+                            <button class="btn btn-link p-0 read-more-button"
+                            data-read-more-target="expandButton"
+                            data-action="click->read-more#expand">続きを読む</button>
+                            <button class="btn btn-link p-0 read-more-button"
+                            data-read-more-target="collapseButton"
+                            data-action="click->read-more#collapse">閉じる</button>
                             <% if user_signed_in? %>
                                 <div class="text-muted" id="like_btn_<%= post.id %>">
                                     <%= render "user/likes/btn", post: post %>
