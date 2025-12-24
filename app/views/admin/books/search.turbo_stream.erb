@@ -4,7 +4,7 @@
   <% end %>
 <% else %>
   <%= turbo_stream.update "book_form_fields" do %>
-    <%= form_with model: @book, url: admin_books_path, local: true do |form| %>
+    <%= fields_for :book, @book do |form| %>
       <%= render "book_form_fields", form: form %>
     <% end %>
   <% end %>
